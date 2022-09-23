@@ -10,12 +10,12 @@ public class GreetingTest {
         // Arrange
         String name = "Sir Horse McSoftly";
         Greeting greeting = new Greeting();
-        String exptectedResult = String.format("Hello, %s", name);
+        String expectedResult = String.format("Hello, %s", name);
 
         // Act
         String actualResult = greeting.greet(name);
 
         // Assert
-        assertThat(actualResult).isEqualTo(exptectedResult);
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 }
