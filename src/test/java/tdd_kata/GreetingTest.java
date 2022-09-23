@@ -18,4 +18,19 @@ public class GreetingTest {
         // Assert
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldReturnStandIn_WhenEmptyStringIsGiven() {
+
+    }
+
+    @Test
+    public void shouldReturnStandIn_WhenEmptyStringIsNull() {
+
+    }
+
+    @Test
+    public void shouldReturnStandIn_WhenNameIsWhitespaces() {
+        String name = "";
+    }
 }
