@@ -41,10 +41,10 @@ public class GreetingTest {
 
     @Test
     public void shouldReturnStandIn_WhenEmptyStringsAreMultiple() {
-        String name1 = "      ", name2 = "      ", name3 = "   ";
+        String[] names = {"   ", " ", "     "};
         Greeting greeting = new Greeting();
 
-        String actualResult = greeting.greet(name1, name2, name3);
+        String actualResult = greeting.greet(names);
         String expectedResult = "Hello, my friends.";
 
         assertThat(actualResult).isEqualTo(expectedResult);
