@@ -5,6 +5,9 @@ public class Greeting {
         if (name == null || name.isEmpty() || name.isBlank()) {
             return "Hello, my friend.";
         }
+        if (isStringUpperCase(name)) {
+            return String.format("HELLO, %s!", name);
+        }
         return String.format("Hello, %s.", name);
     }
 
@@ -20,6 +23,8 @@ public class Greeting {
         }
         return "";
     }
+
+    // BELOW METHODS USED IN GREET METHODS
 
     private static boolean isStringUpperCase(String name) {
         char[] nameChrArr = name.toCharArray();
