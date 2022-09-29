@@ -23,11 +23,11 @@ public class Greeting {
 
     private static boolean isStringUpperCase(String name) {
         char[] nameChrArr = name.toCharArray();
-        for (int i = 0; i < nameChrArr.length; i++) {
-            if (Character.isUpperCase(nameChrArr[i])) {
-                return true;
+        for (char c : nameChrArr) {
+            if (!Character.isUpperCase(c)) {
+                return false;
             }
         }
-        return false;
+        return true;
     }
 }
