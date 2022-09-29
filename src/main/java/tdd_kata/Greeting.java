@@ -1,6 +1,7 @@
 package tdd_kata;
 
 public class Greeting {
+
     public String greet(String name) {
         if (name == null || name.isEmpty() || name.isBlank()) {
             return "Hello, my friend.";
@@ -11,14 +12,17 @@ public class Greeting {
         return String.format("Hello, %s.", name);
     }
 
-    public String greet(String ... names) {
+
+    public String greet(String... names) {
         if (countEmptiness(names) == names.length) {
             return "Hello, my friends.";
         }
         return "";
     }
 
+
     // BELOW METHODS USED IN GREET METHODS
+
 
     private static boolean isStringUpperCase(String name) {
         char[] nameChrArr = name.toCharArray();
@@ -29,6 +33,7 @@ public class Greeting {
         }
         return true;
     }
+
 
     private static int countEmptiness(String[] names) {
         int emptinessCounter = 0;
