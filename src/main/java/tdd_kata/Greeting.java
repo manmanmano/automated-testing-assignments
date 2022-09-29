@@ -10,14 +10,14 @@ public class Greeting {
 
     public String greet(String ... names) {
         int emptinessCounter = 0;
-       for (String name : names) {
-           if (name == null || name.isEmpty() || name.isBlank()) {
-               emptinessCounter++;
-           }
-       }
-       if (emptinessCounter == names.length) {
-           return "Hello, my friends.";
-       }
-       return "";
+        for (String name : names) {
+            if (name == null || name.isEmpty() || name.isBlank()) {
+                emptinessCounter++;
+            }
+        }
+        if (emptinessCounter == names.length) {
+            return "Hello, my friends.";
+        }
+        return "";
     }
 }
