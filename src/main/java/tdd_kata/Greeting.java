@@ -5,7 +5,7 @@ public class Greeting {
         if (name == null || name.isEmpty() || name.isBlank()) {
             return "Hello, my friend.";
         }
-        return String.format("Hello, %s!", name);
+        return String.format("Hello, %s.", name);
     }
 
     public String greet(String ... names) {
