@@ -12,13 +12,7 @@ public class Greeting {
     }
 
     public String greet(String ... names) {
-        int emptinessCounter = 0;
-        for (String name : names) {
-            if (name == null || name.isEmpty() || name.isBlank()) {
-                emptinessCounter++;
-            }
-        }
-        if (emptinessCounter == names.length) {
+        if (countEmptiness(names) == names.length) {
             return "Hello, my friends.";
         }
         return "";
@@ -34,5 +28,15 @@ public class Greeting {
             }
         }
         return true;
+    }
+
+    private static int countEmptiness(String[] names) {
+        int emptinessCounter = 0;
+        for (String name : names) {
+            if (name == null || name.isEmpty() || name.isBlank()) {
+                emptinessCounter++;
+            }
+        }
+        return emptinessCounter;
     }
 }
