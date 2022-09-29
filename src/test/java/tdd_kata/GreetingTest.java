@@ -40,13 +40,14 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnStandIn_WhenNameIsWhitespaces() {
-        String name = "         ";
+    public void shouldReturnStandIn_WhenEmptyStringsAreMultiple() {
+        String name1 = "      ", name2 = "      ", name3 = "   ";
         Greeting greeting = new Greeting();
-        String expectedResult = "Hello, my friend.";
 
-        String actualResult = greeting.greet(name);
+        String actualResult = greeting.greet(name1, name2, name3);
+        String expectedResult = "Hello, my friends.";
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
 }
