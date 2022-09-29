@@ -49,4 +49,15 @@ public class GreetingTest {
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldReturnShoutedName() {
+      String shoutedName = "FRANK";
+      Greeting greeting = new Greeting();
+
+      String actualResult = greeting.greet(shoutedName);
+      String expectedResult = "HELLO, FRANK!";
+
+      assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }
