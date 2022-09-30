@@ -29,7 +29,7 @@ public class Greeting {
             if (normalNameCount == 2) {
                 return String.format("Hello, %s and %s.", names[0], names[1]);
             }
-            return buildMultipleGreet(names, nameCount, shoutedNameCount);
+            return buildMultipleGreet(names, shoutedNameCount);
         }
 
         // if there is one shouted name, add the shouted name in the end
@@ -37,10 +37,10 @@ public class Greeting {
             if (normalNameCount == 1) {
                 return String.format("Hello, %s. AND HELLO, %s!", findNormalNames(names).get(0), findShoutedNames(names).get(0));
             }
-            return buildMultipleGreet(names, nameCount, shoutedNameCount);
+            return buildMultipleGreet(names, shoutedNameCount);
         }
 
-        return buildMultipleGreet(names, nameCount, shoutedNameCount);
+        return buildMultipleGreet(names, shoutedNameCount);
     }
 
 
@@ -112,9 +112,10 @@ public class Greeting {
         return normalNames;
     }
 
-    private static String buildMultipleGreet(String[] names, int nameCount, int shoutedNameCount) {
+    private static String buildMultipleGreet(String[] names, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
         ArrayList<String> normalNames = findNormalNames(names);
+
         // if the normal names are just two than do not add the comma before and
         if (countNormalNames(names) == 2) {
             multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
