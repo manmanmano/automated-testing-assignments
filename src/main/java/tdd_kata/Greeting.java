@@ -66,9 +66,9 @@ public class Greeting {
             }
         }
         return namesCounter;
-    }
-
-
+    } 
+    
+    
     private static int countNormalNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
@@ -114,8 +114,9 @@ public class Greeting {
 
     private static String buildMultipleGreet(String[] names, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
-        ArrayList<String> normalNames = findNormalNames(names);
 
+        // here we deal with normal names
+        ArrayList<String> normalNames = findNormalNames(names);
         // if the normal names are just two than do not add the comma before and
         if (countNormalNames(names) == 2) {
             multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
@@ -129,10 +130,13 @@ public class Greeting {
             }
         }
 
+        // here we deal with shouted names
         ArrayList<String> shoutedNames = findShoutedNames(names);
+        // shouted name is one
         if (shoutedNameCount == 1) {
             multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append("!");
         } else if (shoutedNameCount > 1) {
+            // if shouted names are two than do not put comma before and
             if (shoutedNameCount == 2) {
                 multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append(" AND ")
                         .append(shoutedNames.get(1)).append("!");

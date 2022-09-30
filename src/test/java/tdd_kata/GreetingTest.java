@@ -52,13 +52,13 @@ public class GreetingTest {
 
     @Test
     public void shouldReturnShoutedName() {
-      String shoutedName = "FRANK";
-      Greeting greeting = new Greeting();
+        String shoutedName = "FRANK";
+        Greeting greeting = new Greeting();
 
-      String actualResult = greeting.greet(shoutedName);
-      String expectedResult = String.format("HELLO, %s!", shoutedName);
+        String actualResult = greeting.greet(shoutedName);
+        String expectedResult = String.format("HELLO, %s!", shoutedName);
 
-      assertThat(actualResult).isEqualTo(expectedResult);
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 
     @Test
@@ -100,6 +100,18 @@ public class GreetingTest {
 
         String actualResult = greeting.greet(names);
         String expectedResult = String.format("Hello, %s, %s, and %s.", names[0], names[1], names[2]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+
+    @Test
+    public void shouldReturnMultipleNamesInGreetingAndStandIn() {
+        String[] names = {"Daisy", "Peach", "Todd", null};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s, %s, %s, and my friend.", names[0], names[1], names[2]);
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
