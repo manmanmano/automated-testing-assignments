@@ -71,4 +71,15 @@ public class GreetingTest {
 
         assertThat(actualResult).isNotEqualTo(unexpectedResult);
     }
+
+    @Test
+    public void shouldReturnShoutedNameWhenUppercaseNameContainsUnicodeChars() {
+        String shoutedName = "ÜLO";
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(shoutedName);
+        String expectedResult = "HELLO, ÜLO!";
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }
