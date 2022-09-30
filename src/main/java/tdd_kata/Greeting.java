@@ -14,7 +14,7 @@ public class Greeting {
 
 
     public String greet(String... names) {
-        if (countEmptiness(names) == names.length) {
+        if (countNames(names) == names.length) {
             return "Hello, my friends.";
         }
         return "";
