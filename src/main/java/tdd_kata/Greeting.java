@@ -25,7 +25,11 @@ public class Greeting {
             if (normalNameCount == 2) {
                 return String.format("Hello, %s and %s.", names[0], names[1]);
             }
-            return buildMultipleGreet(names, nameCount);
+            return buildMultipleGreet(names, nameCount, shoutedNameCount);
+        }
+        // if there is one shouted name, add the shouted name in the end
+        else if (shoutedNameCount == 1) {
+            return buildMultipleGreet(names, nameCount, shoutedNameCount);
         }
         return "";
     }
@@ -78,7 +82,7 @@ public class Greeting {
     }
 
 
-    private static String buildMultipleGreet(String[] names, int nameCount, int normalNameCount, int shoutedNameCount) {
+    private static String buildMultipleGreet(String[] names, int nameCount, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
         for (int i = 0; i < nameCount; i++) {
             if (i != nameCount - 1) {
@@ -87,6 +91,13 @@ public class Greeting {
             else {
                 multipleGreet.append("and ").append(names[i]).append(".");
             }
+        }
+        if (shoutedNameCount == 0) {
+            return multipleGreet.toString();
+        }
+        else if (shoutedNameCount == 1) {
+            multipleGreet.append(" AND HELLO, %s");
+            return multipleGreet.toString();
         }
         return multipleGreet.toString();
     }
