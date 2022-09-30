@@ -18,6 +18,9 @@ public class Greeting {
         if (nameCount == 0) {
             return "Hello, my friends.";
         }
+        else if (nameCount == 2) {
+            return String.format("Hello, %s and %s.", names[0], names[1]);
+        }
         return "";
     }
 
