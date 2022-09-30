@@ -1,5 +1,7 @@
 package tdd_kata;
 
+import java.util.ArrayList;
+
 public class Greeting {
 
     public String greet(String name) {
@@ -81,6 +83,16 @@ public class Greeting {
         return namesCounter;
     }
 
+
+    private static ArrayList<String> findShoutedNames(String[] names) {
+        ArrayList<String> shoutedNames = new ArrayList<String>();
+        for (String name : names) {
+            if (isStringUpperCase(name)) {
+                shoutedNames.add(name);
+            }
+        }
+        return shoutedNames;
+    }
 
     private static String buildMultipleGreet(String[] names, int nameCount, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
