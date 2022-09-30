@@ -107,22 +107,18 @@ public class Greeting {
 
     private static String buildMultipleGreet(String[] names, int nameCount, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
+        ArrayList<String> normalNames = findNormalNames(names);
         // if the normal names are just two than do not add the comma before and
         if (countNormalNames(names) == 2) {
-            ArrayList<String> normalNames = findNormalNames(names);
             multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
         }
         else {
-            for (int i = 0; i < nameCount; i++) {
-                // if name is uppercase skip it, we deal with it later
-                if (isStringUpperCase(names[i])) {
-                    continue;
-                }
-                else if (i != nameCount - 1) {
-                    multipleGreet.append(names[i]).append(", ");
+            for (int i = 0; i < countNormalNames(names); i++) {
+                if (normalNames.size() - 1 != i) {
+                    multipleGreet.append(normalNames.get(i)).append(", ");
                 }
                 else {
-                    multipleGreet.append("and ").append(names[i]).append(".");
+                    multipleGreet.append("and ").append(normalNames.get(i)).append(".");
                 }
             }
         }
