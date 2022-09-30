@@ -14,7 +14,8 @@ public class Greeting {
 
 
     public String greet(String... names) {
-        if (countNames(names) == names.length) {
+        int nameCount = countNames(names);
+        if (nameCount == 0) {
             return "Hello, my friends.";
         }
         return "";
@@ -36,10 +37,10 @@ public class Greeting {
 
 
     private static int countNames(String[] names) {
-        int namesCounter = 0;
+        int namesCounter = names.length;
         for (String name : names) {
             if (name == null || name.isEmpty() || name.isBlank()) {
-                namesCounter++;
+                namesCounter--;
             }
         }
         return namesCounter;
