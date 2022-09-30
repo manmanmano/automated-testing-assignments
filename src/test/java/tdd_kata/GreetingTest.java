@@ -20,7 +20,7 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnStandIn_WhenEmptyStringIsGiven() {
+    public void shouldReturnStandInWhenEmptyStringIsGiven() {
         String name = "";
         Greeting greeting = new Greeting();
 
@@ -30,7 +30,7 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnStandIn_WhenEmptyStringIsNull() {
+    public void shouldReturnStandInWhenEmptyStringIsNull() {
         String name = null;
         Greeting greeting = new Greeting();
 
@@ -40,7 +40,7 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnStandIn_WhenEmptyStringsAreMultiple() {
+    public void shouldReturnStandInWhenEmptyStringsAreMultiple() {
         Greeting greeting = new Greeting();
         String name1 = " ", name2 = "  ", name3 = "    ";
 
