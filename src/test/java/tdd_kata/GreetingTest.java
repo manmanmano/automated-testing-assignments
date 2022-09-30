@@ -94,12 +94,23 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnMultipleNamesInGreeting() {
+    public void shouldReturnMultipleNamesInGreetingWithFourNames() {
         String[] names = {"Mario", "Luigi", "Wario", "Waluigi"};
         Greeting greeting = new Greeting();
 
         String actualResult = greeting.greet(names);
         String expectedResult = String.format("Hello, %s, %s, %s, and %s.", names[0], names[1], names[2], names[3]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnMultipleNamesInGreetingWithThreeNames() {
+        String[] names = {"Daisy", "Peach", "Todd"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s, %s, and %s.", names[0], names[1], names[2]);
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
