@@ -19,9 +19,11 @@ public class Greeting {
         // nameCount contains all the types of names, both shouted and normal
         int nameCount = countAllNames(names), normalNameCount = countNormalNames(names),
                 shoutedNameCount = countUppercaseNames(names);
+
         if (nameCount == 0) {
             return "Hello, my friends.";
         }
+
         // if there are no shouted names, then we can just deal with normal names
         if (shoutedNameCount == 0) {
             if (normalNameCount == 2) {
@@ -29,11 +31,13 @@ public class Greeting {
             }
             return buildMultipleGreet(names, nameCount, shoutedNameCount);
         }
+
         // if there is one shouted name, add the shouted name in the end
-        else if (shoutedNameCount == 1) {
+        if (shoutedNameCount == 1) {
             return buildMultipleGreet(names, nameCount, shoutedNameCount);
         }
-        return "";
+
+        return buildMultipleGreet(names, nameCount, shoutedNameCount);
     }
 
 
@@ -133,12 +137,14 @@ public class Greeting {
                 multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append(" AND ")
                         .append(shoutedNames.get(1)).append("!");
             }
-            for (int i = 0; i < shoutedNameCount; i++) {
-                if (shoutedNameCount - 1 != i) {
-                    multipleGreet.append(shoutedNames.get(i)).append(", ");
-                }
-                else {
-                    multipleGreet.append("AND ").append(shoutedNames.get(i)).append("!");
+            else {
+                for (int i = 0; i < shoutedNameCount; i++) {
+                    if (shoutedNameCount - 1 != i) {
+                        multipleGreet.append(shoutedNames.get(i)).append(", ");
+                    }
+                    else {
+                        multipleGreet.append("AND ").append(shoutedNames.get(i)).append("!");
+                    }
                 }
             }
         }
