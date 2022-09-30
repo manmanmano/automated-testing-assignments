@@ -14,11 +14,13 @@ public class Greeting {
 
 
     public String greet(String... names) {
+        // nameCount contains all the types of names, both shouted and normal
         int nameCount = countAllNames(names), normalNameCount = countNormalNames(names),
                 shoutedNameCount = countUppercaseNames(names);
         if (nameCount == 0) {
             return "Hello, my friends.";
         }
+        // if there are no shouted names, then we can just deal with normal names
         if (shoutedNameCount == 0) {
             if (normalNameCount == 2) {
                 return String.format("Hello, %s and %s.", names[0], names[1]);
@@ -76,7 +78,7 @@ public class Greeting {
     }
 
 
-    private static String buildMultipleGreet(String[] names, int nameCount) {
+    private static String buildMultipleGreet(String[] names, int nameCount, int normalNameCount, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
         for (int i = 0; i < nameCount; i++) {
             if (i != nameCount - 1) {
