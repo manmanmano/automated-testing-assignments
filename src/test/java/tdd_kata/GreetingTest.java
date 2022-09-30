@@ -60,4 +60,15 @@ public class GreetingTest {
 
       assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldReturnShoutedNameNotLowercase() {
+        String shoutedName = "FRANK";
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(shoutedName);
+        String unexpectedResult = "Hello, Frank.";
+
+        assertThat(actualResult).isNotEqualTo(unexpectedResult);
+    }
 }
