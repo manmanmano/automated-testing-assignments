@@ -92,4 +92,25 @@ public class GreetingTest {
 
         assertThat(actualResult).isNotEmpty();
     }
+
+    @Test
+    public void shouldReturnMultipleNamesInGreeting() {
+        String[] names = {"Mario", "Luigi", "Wario", "Waluigi"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s, %s, %s, and %s.", names[0], names[1], names[2], names[3]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnMultipleNamesInGreetingAndNotEmptyString() {
+        String[] names = {"Mario", "Luigi", "Wario", "Waluigi"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+
+        assertThat(actualResult).isNotEmpty();
+    }
 }
