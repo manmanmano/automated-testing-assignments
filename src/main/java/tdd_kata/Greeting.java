@@ -85,7 +85,7 @@ public class Greeting {
 
 
     private static ArrayList<String> findShoutedNames(String[] names) {
-        ArrayList<String> shoutedNames = new ArrayList<String>();
+        ArrayList<String> shoutedNames = new ArrayList<>();
         for (String name : names) {
             if (isStringUpperCase(name)) {
                 shoutedNames.add(name);
@@ -94,21 +94,43 @@ public class Greeting {
         return shoutedNames;
     }
 
+
+    private static ArrayList<String> findNormalNames(String[] names) {
+        ArrayList<String> normalNames = new ArrayList<>();
+        for (String name : names) {
+            if (!isStringUpperCase(name)) {
+                normalNames.add(name);
+            }
+        }
+        return normalNames;
+    }
+
     private static String buildMultipleGreet(String[] names, int nameCount, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
-        for (int i = 0; i < nameCount; i++) {
-            if (i != nameCount - 1) {
-                multipleGreet.append(names[i]).append(", ");
-            }
-            else {
-                multipleGreet.append("and ").append(names[i]).append(".");
+        // if the normal names are just two than do not add the comma before and
+        if (countNormalNames(names) == 2) {
+            ArrayList<String> normalNames = findNormalNames(names);
+        }
+        else {
+            for (int i = 0; i < nameCount; i++) {
+                // if name is uppercase skip it, we deal with it later
+                if (isStringUpperCase(names[i])) {
+                    continue;
+                }
+                else if (i != nameCount - 1) {
+                    multipleGreet.append(names[i]).append(", ");
+                }
+                else {
+                    multipleGreet.append("and ").append(names[i]).append(".");
+                }
             }
         }
         if (shoutedNameCount == 0) {
             return multipleGreet.toString();
         }
         else if (shoutedNameCount == 1) {
-            multipleGreet.append(" AND HELLO, %s");
+            ArrayList<String> shoutedName = findShoutedNames(names);
+            multipleGreet.append(" AND HELLO, ").append(shoutedName.get(0)).append("!");
             return multipleGreet.toString();
         }
         return multipleGreet.toString();
