@@ -54,12 +54,24 @@ public class Greeting {
 
 
     private static int countLowercaseNames(String[] names) {
-        return 0;
+        int namesCounter = 0;
+        for (String name : names) {
+            if (!isStringUpperCase(name)) {
+                namesCounter++;
+            }
+        }
+        return namesCounter;
     }
 
 
     private static int countUppercaseNames (String[] names) {
-        return 0;
+        int namesCounter = 0;
+        for (String name : names) {
+            if (isStringUpperCase(name)) {
+                namesCounter++;
+            }
+        }
+        return namesCounter;
     }
 
 
