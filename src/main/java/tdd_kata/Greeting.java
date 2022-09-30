@@ -132,7 +132,6 @@ public class Greeting {
         ArrayList<String> shoutedNames = findShoutedNames(names);
         if (shoutedNameCount == 1) {
             multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append("!");
-            return multipleGreet.toString();
         } else if (shoutedNameCount > 1) {
             if (shoutedNameCount == 2) {
                 multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append(" AND ")
