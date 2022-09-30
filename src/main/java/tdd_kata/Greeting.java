@@ -34,6 +34,9 @@ public class Greeting {
 
         // if there is one shouted name, add the shouted name in the end
         if (shoutedNameCount == 1) {
+            if (normalNameCount == 1) {
+                return String.format("Hello, %s. AND HELLO, %s!", findNormalNames(names).get(0), findShoutedNames(names).get(0));
+            }
             return buildMultipleGreet(names, nameCount, shoutedNameCount);
         }
 
