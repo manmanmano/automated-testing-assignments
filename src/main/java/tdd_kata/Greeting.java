@@ -14,14 +14,15 @@ public class Greeting {
 
 
     public String greet(String... names) {
-        int nameCount = countAllNames(names);
+        int nameCount = countAllNames(names), normalNameCount = countNormalNames(names),
+                shoutedNameCount = countUppercaseNames(names);
         if (nameCount == 0) {
             return "Hello, my friends.";
         }
-        else if (nameCount == 2) {
-            return String.format("Hello, %s and %s.", names[0], names[1]);
-        }
-        else if (nameCount > 2) {
+        if (shoutedNameCount == 0) {
+            if (normalNameCount == 2) {
+                return String.format("Hello, %s and %s.", names[0], names[1]);
+            }
             return buildMultipleGreet(names, nameCount);
         }
         return "";
