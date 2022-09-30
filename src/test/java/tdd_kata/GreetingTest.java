@@ -124,4 +124,37 @@ public class GreetingTest {
 
         assertThat(actualResult).isNotEmpty();
     }
+
+    @Test
+    public void shouldReturnMixOfNormalAndShoutedNamesInGreetingWithThreeNames() {
+        String[] names = {"Mario", "BOWSER", "Luigi"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s and %s. AND HELLO, %s!", names[0], names[2], names[1]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnMixOfNormalAndShoutedNamesInGreetingWithFiveNames() {
+        String[] names = {"Mario", "Yoshi", "Luigi", "BOWSER", "BOO"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s, %s, and %s. AND HELLO, %s AND %s!",
+                names[0], names[1], names[2], names[3], names[4]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnMixOfNormalAndShoutedNamesAndNotEmptyString() {
+        String[] names = {"Mario", "BOWSER", "Luigi"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+
+        assertThat(actualResult).isNotEmpty();
+    }
 }
