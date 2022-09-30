@@ -73,17 +73,6 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnTwoNamesInGreeting() {
-        String[] names = {"Mario", "Luigi"};
-        Greeting greeting = new Greeting();
-
-        String actualResult = greeting.greet(names);
-        String expectedResult = String.format("Hello, %s and %s.", names[0], names[1]);
-
-        assertThat(actualResult).isEqualTo(expectedResult);
-    }
-
-    @Test
     public void shouldReturnTwoNamesInGreetingAndNotEmptyString() {
         String[] names = {"Mario", "Luigi"};
         Greeting greeting = new Greeting();
@@ -156,5 +145,16 @@ public class GreetingTest {
         String actualResult = greeting.greet(names);
 
         assertThat(actualResult).isNotEmpty();
+    }
+
+    @Test
+    public void shouldReturnMixOfNormalAndShoutedNamesInGreetingWithOneAndOne() {
+        String[] names = {"Mario", "LUIGI"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s. AND HELLO, %s!", names[0], names[1]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
     }
 }
