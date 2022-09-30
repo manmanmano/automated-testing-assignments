@@ -122,14 +122,27 @@ public class Greeting {
                 }
             }
         }
-        if (shoutedNameCount == 0) {
+
+        ArrayList<String> shoutedNames = findShoutedNames(names);
+        if (shoutedNameCount == 1) {
+            multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append("!");
             return multipleGreet.toString();
         }
-        else if (shoutedNameCount == 1) {
-            ArrayList<String> shoutedName = findShoutedNames(names);
-            multipleGreet.append(" AND HELLO, ").append(shoutedName.get(0)).append("!");
-            return multipleGreet.toString();
+        else if (shoutedNameCount > 1) {
+            if (shoutedNameCount == 2) {
+                multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append(" AND ")
+                        .append(shoutedNames.get(1)).append("!");
+            }
+            for (int i = 0; i < shoutedNameCount; i++) {
+                if (shoutedNameCount - 1 != i) {
+                    multipleGreet.append(shoutedNames.get(i)).append(", ");
+                }
+                else {
+                    multipleGreet.append("AND ").append(shoutedNames.get(i)).append("!");
+                }
+            }
         }
+
         return multipleGreet.toString();
     }
 }
