@@ -56,7 +56,7 @@ public class GreetingTest {
       Greeting greeting = new Greeting();
 
       String actualResult = greeting.greet(shoutedName);
-      String expectedResult = "HELLO, FRANK!";
+      String expectedResult = String.format("HELLO, %s!", shoutedName);
 
       assertThat(actualResult).isEqualTo(expectedResult);
     }
@@ -67,7 +67,7 @@ public class GreetingTest {
         Greeting greeting = new Greeting();
 
         String actualResult = greeting.greet(shoutedName);
-        String expectedResult = "HELLO, ÜLO!";
+        String expectedResult = String.format("HELLO, %s!", shoutedName);
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
