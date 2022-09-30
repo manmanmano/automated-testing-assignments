@@ -21,6 +21,9 @@ public class Greeting {
         else if (nameCount == 2) {
             return String.format("Hello, %s and %s.", names[0], names[1]);
         }
+        else if (nameCount > 2) {
+            return buildMultipleGreet(names, nameCount);
+        }
         return "";
     }
 
@@ -47,5 +50,19 @@ public class Greeting {
             }
         }
         return namesCounter;
+    }
+
+
+    private static String buildMultipleGreet(String[] names, int nameCount) {
+        StringBuilder multipleGreet = new StringBuilder("Hello, ");
+        for (int i = 0; i < nameCount; i++) {
+            if (i != nameCount - 1) {
+                multipleGreet.append(names[i]).append(", ");
+            }
+            else {
+                multipleGreet.append("and ").append(names[i]).append(".");
+            }
+        }
+        return multipleGreet.toString();
     }
 }
