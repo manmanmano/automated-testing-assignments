@@ -53,7 +53,7 @@ public class Greeting {
     }
 
 
-    private static int countLowercaseNames(String[] names) {
+    private static int countNormalNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
             if (!isStringUpperCase(name)) {
