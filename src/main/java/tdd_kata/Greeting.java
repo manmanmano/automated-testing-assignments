@@ -110,6 +110,7 @@ public class Greeting {
         // if the normal names are just two than do not add the comma before and
         if (countNormalNames(names) == 2) {
             ArrayList<String> normalNames = findNormalNames(names);
+            multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
         }
         else {
             for (int i = 0; i < nameCount; i++) {
