@@ -35,13 +35,13 @@ public class Greeting {
     }
 
 
-    private static int countEmptiness(String[] names) {
-        int emptinessCounter = 0;
+    private static int countNames(String[] names) {
+        int namesCounter = 0;
         for (String name : names) {
             if (name == null || name.isEmpty() || name.isBlank()) {
-                emptinessCounter++;
+                namesCounter++;
             }
         }
-        return emptinessCounter;
+        return namesCounter;
     }
 }
