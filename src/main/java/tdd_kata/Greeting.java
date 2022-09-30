@@ -80,7 +80,7 @@ public class Greeting {
     }
 
 
-    private static int countUppercaseNames (String[] names) {
+    private static int countUppercaseNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
             if (isStringUpperCase(name)) {
@@ -118,13 +118,11 @@ public class Greeting {
         // if the normal names are just two than do not add the comma before and
         if (countNormalNames(names) == 2) {
             multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
-        }
-        else {
+        } else {
             for (int i = 0; i < countNormalNames(names); i++) {
                 if (normalNames.size() - 1 != i) {
                     multipleGreet.append(normalNames.get(i)).append(", ");
-                }
-                else {
+                } else {
                     multipleGreet.append("and ").append(normalNames.get(i)).append(".");
                 }
             }
@@ -134,18 +132,15 @@ public class Greeting {
         if (shoutedNameCount == 1) {
             multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append("!");
             return multipleGreet.toString();
-        }
-        else if (shoutedNameCount > 1) {
+        } else if (shoutedNameCount > 1) {
             if (shoutedNameCount == 2) {
                 multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append(" AND ")
                         .append(shoutedNames.get(1)).append("!");
-            }
-            else {
+            } else {
                 for (int i = 0; i < shoutedNameCount; i++) {
                     if (shoutedNameCount - 1 != i) {
                         multipleGreet.append(shoutedNames.get(i)).append(", ");
-                    }
-                    else {
+                    } else {
                         multipleGreet.append("AND ").append(shoutedNames.get(i)).append("!");
                     }
                 }
