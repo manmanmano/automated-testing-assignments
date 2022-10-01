@@ -78,8 +78,8 @@ public class Greeting {
         }
         return namesCounter;
     }
-    
-    
+
+
     private static int countNormalNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
@@ -104,19 +104,9 @@ public class Greeting {
 
     private static ArrayList<String> findShoutedNames(String[] names) {
         ArrayList<String> shoutedNames = new ArrayList<>();
-        for (int i = 0; i < names.length; i++) {
-            // ignore undefined names
-            if (names[i] == null || names[i].isBlank() || names[i].isEmpty()) {
-                // if undefined name is the last break
-                if (i == names.length - 1) {
-                    break;
-                } else {
-                    // if not the last skip it
-                    continue;
-                }
-            }
-            if (isStringUpperCase(names[i])) {
-                shoutedNames.add(names[i]);
+        for (String name : names) {
+            if (isStringUpperCase(name)) {
+                shoutedNames.add(name);
             }
         }
         return shoutedNames;
