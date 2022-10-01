@@ -17,7 +17,7 @@ public class Greeting {
 
     public String greet(String... names) {
         // nameCount contains all the types of names, both shouted and normal
-        int nameCount = countAllNames(names), normalNameCount = countNormalNames(names),
+        int nameCount = countDefinedNames(names), normalNameCount = countNormalNames(names),
                 shoutedNameCount = countUppercaseNames(names);
 
         if (nameCount == 0) {
@@ -58,7 +58,7 @@ public class Greeting {
     }
 
 
-    private static int countAllNames(String[] names) {
+    private static int countDefinedNames(String[] names) {
         int namesCounter = names.length;
         for (String name : names) {
             if (name == null || name.isEmpty() || name.isBlank()) {
@@ -66,7 +66,18 @@ public class Greeting {
             }
         }
         return namesCounter;
-    } 
+    }
+
+
+    private static int countUndefinedNames(String[] names) {
+        int namesCounter = 0;
+        for (String name : names) {
+            if (name == null || name.isEmpty() || name.isBlank()) {
+                namesCounter++;
+            }
+        }
+        return namesCounter;
+    }
     
     
     private static int countNormalNames(String[] names) {
@@ -93,9 +104,19 @@ public class Greeting {
 
     private static ArrayList<String> findShoutedNames(String[] names) {
         ArrayList<String> shoutedNames = new ArrayList<>();
-        for (String name : names) {
-            if (isStringUpperCase(name)) {
-                shoutedNames.add(name);
+        for (int i = 0; i < names.length; i++) {
+            // ignore undefined names
+            if (names[i] == null || names[i].isBlank() || names[i].isEmpty()) {
+                // if undefined name is the last break
+                if (i == names.length - 1) {
+                    break;
+                } else {
+                    // if not the last skip it
+                    continue;
+                }
+            }
+            if (isStringUpperCase(names[i])) {
+                shoutedNames.add(names[i]);
             }
         }
         return shoutedNames;
@@ -119,6 +140,9 @@ public class Greeting {
         ArrayList<String> normalNames = findNormalNames(names);
         // if the normal names are just two than do not add the comma before and
         if (countNormalNames(names) == 2) {
+            if (countUndefinedNames(names) == 1) {
+                multipleGreet.append(normalNames.get(0)).append(" and ").append("my friend").append(".");
+            }
             multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
         } else {
             for (int i = 0; i < countNormalNames(names); i++) {

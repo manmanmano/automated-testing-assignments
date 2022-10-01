@@ -107,7 +107,7 @@ public class GreetingTest {
 
     @Test
     public void shouldReturnMultipleNamesInGreetingAndStandIn() {
-        String[] names = {"Daisy", "Peach", "Todd", null};
+        String[] names = {"Daisy", "Peach", "Todd", " "};
         Greeting greeting = new Greeting();
 
         String actualResult = greeting.greet(names);
