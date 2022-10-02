@@ -17,9 +17,12 @@ public class Greeting {
 
 
     public String greet(String... names) {
-       // split all the names if necessary
-        if (!areNamesSplit(names)) {
-            names = splitNames(names);
+        // split names only if they have unescaped double quotes
+        if (!areNamesEscaped(names)) {
+            // split all the names if necessary
+            if (!areNamesSplit(names)) {
+                names = splitNames(names);
+            }
         }
 
         // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
@@ -51,6 +54,16 @@ public class Greeting {
 
 
     // BELOW METHODS USED IN GREET METHODS
+
+
+    private static boolean areNamesEscaped(String[] names) {
+        for (String name : names) {
+            if (name != null && name.contains("\"")) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
     private static boolean areNamesSplit(String[] names) {
