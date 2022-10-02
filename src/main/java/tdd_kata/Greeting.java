@@ -127,6 +127,18 @@ public class Greeting {
         return normalNames;
     }
 
+
+    // create list with null, whitespaces, or empty strings
+    private static ArrayList<String> findUndefinedNames(String[] names) {
+        ArrayList<String> undefinedNames = new ArrayList<>();
+        for (String name : names) {
+            if (!isStringUpperCase(name) && name.isBlank()) {
+                undefinedNames.add(name);
+            }
+        }
+        return undefinedNames;
+    }
+
     private static String buildMultipleGreet(String[] names, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
 
