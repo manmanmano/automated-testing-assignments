@@ -110,7 +110,7 @@ public class Greeting {
         ArrayList<String> unshoutedNames = findUnshoutedNames(names);
         // if the unshouted names are just two than do not add the comma before and
         if (findUnshoutedNames(names).size() == 2) {
-            if (findUnshoutedNames(names).size() == 1) {
+            if (findDefinedNames(names).size() == 1) {
                 multipleGreet.append(unshoutedNames.get(0)).append(" and ").append("my friend").append(".");
             }
             multipleGreet.append(unshoutedNames.get(0)).append(" and ").append(unshoutedNames.get(1)).append(".");
@@ -120,7 +120,6 @@ public class Greeting {
                     multipleGreet.append(unshoutedNames.get(i)).append(", ");
                 } else if (findUndefinedNames(names).size() == 1) {
                     multipleGreet.append("and ").append("my friend").append(".");
-                    break;
                 }
                 else {
                     multipleGreet.append("and ").append(unshoutedNames.get(i)).append(".");
