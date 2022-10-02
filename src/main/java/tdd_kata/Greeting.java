@@ -119,12 +119,15 @@ public class Greeting {
             multipleGreet.append(unshoutedNames.get(0)).append(" and ").append(unshoutedNames.get(1)).append(".");
         } else {
             for (int i = 0; i < unshoutedNameCount; i++) {
-                if (unshoutedNames.size() - 1 != i) {
+                if (unshoutedNameCount - 1 != i && findUnshoutedNames(names).get(i) != null) {
                     multipleGreet.append(unshoutedNames.get(i)).append(", ");
                 } else if (undefinedNameCount == 1) {
                     multipleGreet.append("and ").append("my friend").append(".");
-                }
-                else {
+                } else if (undefinedNameCount > 1) {
+                    // break in order to not repeat for every undefined name
+                    multipleGreet.append("and ").append("my friends").append(".");
+                    break;
+                } else {
                     multipleGreet.append("and ").append(unshoutedNames.get(i)).append(".");
                 }
             }

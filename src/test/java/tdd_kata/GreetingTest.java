@@ -128,7 +128,7 @@ public class GreetingTest {
 
     @Test
     public void shouldReturnMultipleNamesInGreetingAndPluralStandIn() {
-        String[] names = {"Mario", "Luigi", "Wario", "Waluigi"};
+        String[] names = {"Mario", "Luigi", "Wario", "Waluigi", null, " "};
         Greeting greeting = new Greeting();
 
         String actualResult = greeting.greet(names);
