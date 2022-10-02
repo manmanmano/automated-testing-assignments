@@ -58,6 +58,7 @@ public class Greeting {
     }
 
 
+    // count both uppercase and non uppercase names
     private static int countDefinedNames(String[] names) {
         int namesCounter = names.length;
         for (String name : names) {
@@ -69,6 +70,7 @@ public class Greeting {
     }
 
 
+    // count undefined names such as null, " " or empty strings
     private static int countUndefinedNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
@@ -80,10 +82,11 @@ public class Greeting {
     }
 
 
+    // counts non uppercase names
     private static int countNormalNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
-            if (!isStringUpperCase(name)) {
+            if (!isStringUpperCase(name) && (!name.isBlank() || !name.isBlank())) {
                 namesCounter++;
             }
         }
@@ -91,6 +94,7 @@ public class Greeting {
     }
 
 
+    // count uppercase names
     private static int countUppercaseNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
