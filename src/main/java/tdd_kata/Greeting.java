@@ -48,6 +48,9 @@ public class Greeting {
 
 
     private static boolean isNameUppercase(String name) {
+        if (name == null) {
+            return false;
+        }
         char[] nameChrArr = name.toCharArray();
         for (char c : nameChrArr) {
             if (!Character.isUpperCase(c)) {
@@ -95,7 +98,7 @@ public class Greeting {
     private static ArrayList<String> findUndefinedNames(String[] names) {
         ArrayList<String> undefinedNames = new ArrayList<>();
         for (String name : names) {
-            if (!isNameUppercase(name) && name.isBlank()) {
+            if (!isNameUppercase(name) && (name == null || name.isBlank())) {
                 undefinedNames.add(name);
             }
         }
