@@ -17,8 +17,8 @@ public class Greeting {
 
     public String greet(String... names) {
         // nameCount contains all the types of names, both shouted and normal, not blank, null, or "  "
-        int nameCount = countDefinedNames(names), normalNameCount = countNormalNames(names),
-                shoutedNameCount = countUppercaseNames(names);
+        int nameCount = findNormalNames(names).size(), normalNameCount = findNormalNames(names).size(),
+                shoutedNameCount = findShoutedNames(names).size();
 
         if (nameCount == 0) {
             return "Hello, my friends.";
@@ -59,6 +59,7 @@ public class Greeting {
 
 
     // count both uppercase and non uppercase names
+    /*
     private static int countDefinedNames(String[] names) {
         int namesCounter = names.length;
         for (String name : names) {
@@ -104,6 +105,7 @@ public class Greeting {
         }
         return namesCounter;
     }
+    */
 
 
     private static ArrayList<String> findShoutedNames(String[] names) {
@@ -139,22 +141,23 @@ public class Greeting {
         return undefinedNames;
     }
 
+
     private static String buildMultipleGreet(String[] names, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
 
         // here we deal with normal names
         ArrayList<String> normalNames = findNormalNames(names);
         // if the normal names are just two than do not add the comma before and
-        if (countNormalNames(names) == 2) {
-            if (countUndefinedNames(names) == 1) {
+        if (findNormalNames(names).size() == 2) {
+            if (findNormalNames(names).size() == 1) {
                 multipleGreet.append(normalNames.get(0)).append(" and ").append("my friend").append(".");
             }
             multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
         } else {
-            for (int i = 0; i < countNormalNames(names); i++) {
+            for (int i = 0; i < findNormalNames(names).size(); i++) {
                 if (normalNames.size() - 1 != i) {
                     multipleGreet.append(normalNames.get(i)).append(", ");
-                } else if (countUndefinedNames(names) == 1) {
+                } else if (findUndefinedNames(names).size() == 1) {
                     multipleGreet.append("and ").append("my friend").append(".");
                     break;
                 }
