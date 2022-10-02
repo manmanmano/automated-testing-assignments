@@ -1,6 +1,7 @@
 package tdd_kata;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Greeting {
 
@@ -18,7 +19,7 @@ public class Greeting {
     public String greet(String... names) {
        // split all the names if necessary
         if (!areNamesSplit(names)) {
-            return "";
+            names = splitNames(names);
         }
 
         // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
@@ -54,12 +55,27 @@ public class Greeting {
 
     private static boolean areNamesSplit(String[] names) {
         for (String name : names) {
-            if (name.contains(", ")) {
+            if (name != null && name.contains(", ")) {
                 return false;
             }
         }
         return true;
     }
+
+
+    private static String[] splitNames(String[] names) {
+        ArrayList<String> fixedNames = new ArrayList<>();
+        for (String name : names) {
+            if (name.contains(", ")) {
+                String[] sepNames = name.split(", ");
+                fixedNames.addAll(Arrays.asList(sepNames));
+            } else {
+                fixedNames.add(name);
+            }
+        }
+        return fixedNames.toArray(new String[0]);
+    }
+
 
     private static boolean isNameUppercase(String name) {
         if (name == null) {
