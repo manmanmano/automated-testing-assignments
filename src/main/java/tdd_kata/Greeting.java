@@ -18,7 +18,7 @@ public class Greeting {
     public String greet(String... names) {
         // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
         int nameCount = findDefinedNames(names).size(), unshoutedNameCount = findUnshoutedNames(names).size(),
-                shoutedNameCount = findShoutedNames(names).size();
+                shoutedNameCount = findShoutedNames(names).size(), undefinedNameCount = findUndefinedNames(names).size();
 
         if (nameCount == 0) {
             return "Hello, my friends.";
@@ -29,7 +29,7 @@ public class Greeting {
             if (unshoutedNameCount == 2) {
                 return String.format("Hello, %s and %s.", names[0], names[1]);
             }
-            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount);
+            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount, undefinedNameCount);
         }
 
         // if there is one shouted name, add the shouted name in the end
@@ -37,10 +37,10 @@ public class Greeting {
             if (unshoutedNameCount == 1) {
                 return String.format("Hello, %s. AND HELLO, %s!", findUnshoutedNames(names).get(0), findShoutedNames(names).get(0));
             }
-            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount);
+            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount, undefinedNameCount);
         }
 
-        return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount);
+        return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount, undefinedNameCount);
     }
 
 
@@ -103,22 +103,22 @@ public class Greeting {
     }
 
 
-    private static String buildMultipleGreet(String[] names, int shoutedNameCount, int unshoutedNameCount) {
+    private static String buildMultipleGreet(String[] names, int shoutedNameCount, int unshoutedNameCount, int undefinedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
 
         // here we deal with unshouted names
         ArrayList<String> unshoutedNames = findUnshoutedNames(names);
         // if the unshouted names are just two than do not add the comma before and
-        if (findUnshoutedNames(names).size() == 2) {
+        if (unshoutedNameCount == 2) {
             if (findDefinedNames(names).size() == 1) {
                 multipleGreet.append(unshoutedNames.get(0)).append(" and ").append("my friend").append(".");
             }
             multipleGreet.append(unshoutedNames.get(0)).append(" and ").append(unshoutedNames.get(1)).append(".");
         } else {
-            for (int i = 0; i < findUnshoutedNames(names).size(); i++) {
+            for (int i = 0; i < unshoutedNameCount; i++) {
                 if (unshoutedNames.size() - 1 != i) {
                     multipleGreet.append(unshoutedNames.get(i)).append(", ");
-                } else if (findUndefinedNames(names).size() == 1) {
+                } else if (undefinedNameCount == 1) {
                     multipleGreet.append("and ").append("my friend").append(".");
                 }
                 else {
