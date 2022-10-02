@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Greeting {
 
     public String greet(String name) {
-        if (name == null || name.isEmpty() || name.isBlank()) {
+        if (name == null || name.isBlank()) {
             return "Hello, my friend.";
         }
         if (isStringUpperCase(name)) {
