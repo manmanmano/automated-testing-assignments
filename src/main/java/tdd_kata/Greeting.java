@@ -16,6 +16,11 @@ public class Greeting {
 
 
     public String greet(String... names) {
+       // split all the names if necessary
+        if (!areNamesSplit(names)) {
+            return "";
+        }
+
         // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
         int nameCount = findDefinedNames(names).size(), unshoutedNameCount = findUnshoutedNames(names).size(),
                 shoutedNameCount = findShoutedNames(names).size(), undefinedNameCount = findUndefinedNames(names).size();
@@ -46,6 +51,15 @@ public class Greeting {
 
     // BELOW METHODS USED IN GREET METHODS
 
+
+    private static boolean areNamesSplit(String[] names) {
+        for (String name : names) {
+            if (name.contains(", ")) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     private static boolean isNameUppercase(String name) {
         if (name == null) {
