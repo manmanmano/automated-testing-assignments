@@ -23,6 +23,8 @@ public class Greeting {
             if (!areNamesSplit(names)) {
                 names = splitNames(names);
             }
+        } else {
+            names = deleteDoubleQuotes(names);
         }
 
         // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
@@ -63,6 +65,19 @@ public class Greeting {
             }
         }
         return false;
+    }
+
+
+    private static String[] deleteDoubleQuotes(String[] names) {
+        ArrayList<String> fixedNames = new ArrayList<>();
+        for (String name : names) {
+            if (name.contains("\"")) {
+                fixedNames.add(name.substring(1, name.length() - 1));
+                continue;
+            }
+            fixedNames.add(name);
+        }
+        return fixedNames.toArray(new String[0]);
     }
 
 
