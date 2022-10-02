@@ -159,7 +159,7 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnMixOfNormalAndShoutedNamesInGreetingWithFiveNames() {
+    public void shouldReturnMixOfNormalAndTwoShoutedNamesInGreetingWithFiveNames() {
         String[] names = {"Mario", "Yoshi", "Luigi", "BOWSER", "BOO"};
         Greeting greeting = new Greeting();
 
@@ -190,4 +190,17 @@ public class GreetingTest {
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldReturnMixOfNormalAndMultipleShoutedNamesInGreetingWithSixNames() {
+        String[] names = {"Mario", "Yoshi", "Luigi", "BOWSER", "BOO", "KOOPA"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s, %s, and %s. AND HELLO, %s, %s, AND %s!",
+                names[0], names[1], names[2], names[3], names[4], names[5]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }
+
