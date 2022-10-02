@@ -8,7 +8,7 @@ public class Greeting {
         if (name == null || name.isBlank()) {
             return "Hello, my friend.";
         }
-        if (isStringUpperCase(name)) {
+        if (isNameUppercase(name)) {
             return String.format("HELLO, %s!", name);
         }
         return String.format("Hello, %s.", name);
@@ -47,7 +47,7 @@ public class Greeting {
     // BELOW METHODS USED IN GREET METHODS
 
 
-    private static boolean isStringUpperCase(String name) {
+    private static boolean isNameUppercase(String name) {
         char[] nameChrArr = name.toCharArray();
         for (char c : nameChrArr) {
             if (!Character.isUpperCase(c)) {
@@ -72,7 +72,7 @@ public class Greeting {
     private static ArrayList<String> findShoutedNames(String[] names) {
         ArrayList<String> shoutedNames = new ArrayList<>();
         for (String name : names) {
-            if (isStringUpperCase(name)) {
+            if (isNameUppercase(name)) {
                 shoutedNames.add(name);
             }
         }
@@ -83,7 +83,7 @@ public class Greeting {
     private static ArrayList<String> findUnshoutedNames(String[] names) {
         ArrayList<String> unshoutedNames = new ArrayList<>();
         for (String name : names) {
-            if (!isStringUpperCase(name)) {
+            if (!isNameUppercase(name)) {
                 unshoutedNames.add(name);
             }
         }
@@ -95,7 +95,7 @@ public class Greeting {
     private static ArrayList<String> findUndefinedNames(String[] names) {
         ArrayList<String> undefinedNames = new ArrayList<>();
         for (String name : names) {
-            if (!isStringUpperCase(name) && name.isBlank()) {
+            if (!isNameUppercase(name) && name.isBlank()) {
                 undefinedNames.add(name);
             }
         }
