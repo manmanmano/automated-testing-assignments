@@ -16,17 +16,17 @@ public class Greeting {
 
 
     public String greet(String... names) {
-        // nameCount contains all the types of names, both shouted and normal, not blank, null, or "  "
-        int nameCount = findNormalNames(names).size(), normalNameCount = findNormalNames(names).size(),
+        // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
+        int nameCount = findUnshoutedNames(names).size(), unshoutedNameCount = findUnshoutedNames(names).size(),
                 shoutedNameCount = findShoutedNames(names).size();
 
         if (nameCount == 0) {
             return "Hello, my friends.";
         }
 
-        // if there are no shouted names, then we can just deal with normal names
+        // if there are no shouted names, then we can just deal with unshouted names
         if (shoutedNameCount == 0) {
-            if (normalNameCount == 2) {
+            if (unshoutedNameCount == 2) {
                 return String.format("Hello, %s and %s.", names[0], names[1]);
             }
             return buildMultipleGreet(names, shoutedNameCount);
@@ -34,8 +34,8 @@ public class Greeting {
 
         // if there is one shouted name, add the shouted name in the end
         if (shoutedNameCount == 1) {
-            if (normalNameCount == 1) {
-                return String.format("Hello, %s. AND HELLO, %s!", findNormalNames(names).get(0), findShoutedNames(names).get(0));
+            if (unshoutedNameCount == 1) {
+                return String.format("Hello, %s. AND HELLO, %s!", findUnshoutedNames(names).get(0), findShoutedNames(names).get(0));
             }
             return buildMultipleGreet(names, shoutedNameCount);
         }
@@ -69,14 +69,14 @@ public class Greeting {
     }
 
 
-    private static ArrayList<String> findNormalNames(String[] names) {
-        ArrayList<String> normalNames = new ArrayList<>();
+    private static ArrayList<String> findUnshoutedNames(String[] names) {
+        ArrayList<String> unshoutedNames = new ArrayList<>();
         for (String name : names) {
             if (!isStringUpperCase(name) && !name.isBlank()) {
-                normalNames.add(name);
+                unshoutedNames.add(name);
             }
         }
-        return normalNames;
+        return unshoutedNames;
     }
 
 
@@ -95,24 +95,24 @@ public class Greeting {
     private static String buildMultipleGreet(String[] names, int shoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
 
-        // here we deal with normal names
-        ArrayList<String> normalNames = findNormalNames(names);
-        // if the normal names are just two than do not add the comma before and
-        if (findNormalNames(names).size() == 2) {
-            if (findNormalNames(names).size() == 1) {
-                multipleGreet.append(normalNames.get(0)).append(" and ").append("my friend").append(".");
+        // here we deal with unshouted names
+        ArrayList<String> unshoutedNames = findUnshoutedNames(names);
+        // if the unshouted names are just two than do not add the comma before and
+        if (findUnshoutedNames(names).size() == 2) {
+            if (findUnshoutedNames(names).size() == 1) {
+                multipleGreet.append(unshoutedNames.get(0)).append(" and ").append("my friend").append(".");
             }
-            multipleGreet.append(normalNames.get(0)).append(" and ").append(normalNames.get(1)).append(".");
+            multipleGreet.append(unshoutedNames.get(0)).append(" and ").append(unshoutedNames.get(1)).append(".");
         } else {
-            for (int i = 0; i < findNormalNames(names).size(); i++) {
-                if (normalNames.size() - 1 != i) {
-                    multipleGreet.append(normalNames.get(i)).append(", ");
+            for (int i = 0; i < findUnshoutedNames(names).size(); i++) {
+                if (unshoutedNames.size() - 1 != i) {
+                    multipleGreet.append(unshoutedNames.get(i)).append(", ");
                 } else if (findUndefinedNames(names).size() == 1) {
                     multipleGreet.append("and ").append("my friend").append(".");
                     break;
                 }
                 else {
-                    multipleGreet.append("and ").append(normalNames.get(i)).append(".");
+                    multipleGreet.append("and ").append(unshoutedNames.get(i)).append(".");
                 }
             }
         }
