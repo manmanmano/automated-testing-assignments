@@ -105,8 +105,8 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnMultipleNamesInGreetingAndStandIn() {
-        String[] names = {"Daisy", "Peach", "Todd", null};
+    public void shouldReturnMultipleNamesInGreetingAndStandInWithBlank() {
+        String[] names = {"Daisy", "Peach", "Todd", " "};
         Greeting greeting = new Greeting();
 
         String actualResult = greeting.greet(names);
@@ -116,12 +116,12 @@ public class GreetingTest {
     }
 
     @Test
-    public void shouldReturnMultipleNamesInGreetingAndPluralStandIn() {
-        String[] names = {"Daisy", "Peach", "Todd", " ", " "};
+    public void shouldReturnMultipleNamesInGreetingAndStandInWithNull() {
+        String[] names = {"Daisy", "Peach", "Todd", null};
         Greeting greeting = new Greeting();
 
         String actualResult = greeting.greet(names);
-        String expectedResult = String.format("Hello, %s, %s, %s, and my friends.", names[0], names[1], names[2]);
+        String expectedResult = String.format("Hello, %s, %s, %s, and my friend.", names[0], names[1], names[2]);
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
