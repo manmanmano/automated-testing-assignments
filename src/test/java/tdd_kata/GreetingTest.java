@@ -202,5 +202,55 @@ public class GreetingTest {
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
+
+    @Test
+    public void shouldReturnSplitUnescapedCommaNamesInGreetingWithThreeNames() {
+        String[] unsplitNames = {"Mario, Luigi", "Yoshi"};
+        String[] names = {"Mario", "Luigi", "Yoshi"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(unsplitNames);
+        String expectedResult = String.format("Hello, %s, %s, and %s.", names[0], names[1], names[2]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnSplitUnescapedCommaNamesInGreetingWithTwoNames() {
+        String[] names = {"Mario", "Luigi"};
+        String[] unsplitNames = {"Mario, Luigi"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(unsplitNames);
+        String expectedResult = String.format("Hello, %s and %s.", names[0], names[1]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnSplitUnescapedCommaNamesInGreetingWithTwoShoutedNames() {
+        String[] names = {"Mario", "Luigi", "PEACH", "DAISY"};
+        String[] unsplitNames = {"Mario", "Luigi", "PEACH, DAISY"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(unsplitNames);
+        String expectedResult = String.format("Hello, %s and %s. AND HELLO, %s AND %s!", names[0], names[1],
+                names[2], names[3]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
+    public void shouldReturnSplitUnescapedCommaNamesInGreetingWithThreeShoutedNames() {
+        String[] names = {"Mario", "Luigi", "PEACH", "DAISY", "TODD"};
+        String[] unsplitNames = {"Mario", "Luigi", "PEACH, DAISY", "TODD"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(unsplitNames);
+        String expectedResult = String.format("Hello, %s and %s. AND HELLO, %s, %s, AND %s!", names[0], names[1],
+                names[2], names[3], names[4]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
 }
 
