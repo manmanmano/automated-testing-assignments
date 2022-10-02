@@ -17,7 +17,7 @@ public class Greeting {
 
     public String greet(String... names) {
         // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
-        int nameCount = findUnshoutedNames(names).size(), unshoutedNameCount = findUnshoutedNames(names).size(),
+        int nameCount = findDefinedNames(names).size(), unshoutedNameCount = findUnshoutedNames(names).size(),
                 shoutedNameCount = findShoutedNames(names).size();
 
         if (nameCount == 0) {
@@ -55,6 +55,17 @@ public class Greeting {
             }
         }
         return true;
+    }
+
+
+    private static ArrayList<String> findDefinedNames(String[] names) {
+        ArrayList<String> definedNames = new ArrayList<>();
+        for (String name : names) {
+            if (name != null && !name.isBlank()) {
+                definedNames.add(name);
+            }
+        }
+        return definedNames;
     }
 
 
