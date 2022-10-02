@@ -62,7 +62,7 @@ public class Greeting {
     private static int countDefinedNames(String[] names) {
         int namesCounter = names.length;
         for (String name : names) {
-            if (name == null || name.isEmpty() || name.isBlank()) {
+            if (name == null || name.isBlank()) {
                 namesCounter--;
             }
         }
@@ -74,7 +74,7 @@ public class Greeting {
     private static int countUndefinedNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
-            if (name == null || name.isEmpty() || name.isBlank()) {
+            if (name == null || name.isBlank()) {
                 namesCounter++;
             }
         }
@@ -86,7 +86,7 @@ public class Greeting {
     private static int countNormalNames(String[] names) {
         int namesCounter = 0;
         for (String name : names) {
-            if (!isStringUpperCase(name) && (!name.isBlank() || !name.isBlank())) {
+            if (!isStringUpperCase(name) && !name.isBlank()) {
                 namesCounter++;
             }
         }
@@ -120,7 +120,7 @@ public class Greeting {
     private static ArrayList<String> findNormalNames(String[] names) {
         ArrayList<String> normalNames = new ArrayList<>();
         for (String name : names) {
-            if (!isStringUpperCase(name) && (!name.isBlank() || !name.isBlank())) {
+            if (!isStringUpperCase(name) && !name.isBlank()) {
                 normalNames.add(name);
             }
         }
