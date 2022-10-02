@@ -29,7 +29,7 @@ public class Greeting {
             if (unshoutedNameCount == 2) {
                 return String.format("Hello, %s and %s.", names[0], names[1]);
             }
-            return buildMultipleGreet(names, shoutedNameCount);
+            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount);
         }
 
         // if there is one shouted name, add the shouted name in the end
@@ -37,10 +37,10 @@ public class Greeting {
             if (unshoutedNameCount == 1) {
                 return String.format("Hello, %s. AND HELLO, %s!", findUnshoutedNames(names).get(0), findShoutedNames(names).get(0));
             }
-            return buildMultipleGreet(names, shoutedNameCount);
+            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount);
         }
 
-        return buildMultipleGreet(names, shoutedNameCount);
+        return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount);
     }
 
 
@@ -83,7 +83,7 @@ public class Greeting {
     private static ArrayList<String> findUnshoutedNames(String[] names) {
         ArrayList<String> unshoutedNames = new ArrayList<>();
         for (String name : names) {
-            if (!isStringUpperCase(name) && !name.isBlank()) {
+            if (!isStringUpperCase(name)) {
                 unshoutedNames.add(name);
             }
         }
@@ -91,7 +91,7 @@ public class Greeting {
     }
 
 
-    // create list with null, whitespaces, or empty strings
+    // create list with null, whitespaces, or empty strings aka undefined names
     private static ArrayList<String> findUndefinedNames(String[] names) {
         ArrayList<String> undefinedNames = new ArrayList<>();
         for (String name : names) {
@@ -103,7 +103,7 @@ public class Greeting {
     }
 
 
-    private static String buildMultipleGreet(String[] names, int shoutedNameCount) {
+    private static String buildMultipleGreet(String[] names, int shoutedNameCount, int unshoutedNameCount) {
         StringBuilder multipleGreet = new StringBuilder("Hello, ");
 
         // here we deal with unshouted names
