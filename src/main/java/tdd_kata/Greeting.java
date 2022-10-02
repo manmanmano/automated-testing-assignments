@@ -58,56 +58,6 @@ public class Greeting {
     }
 
 
-    // count both uppercase and non uppercase names
-    /*
-    private static int countDefinedNames(String[] names) {
-        int namesCounter = names.length;
-        for (String name : names) {
-            if (name == null || name.isBlank()) {
-                namesCounter--;
-            }
-        }
-        return namesCounter;
-    }
-
-
-    // count undefined names such as null, " " or empty strings
-    private static int countUndefinedNames(String[] names) {
-        int namesCounter = 0;
-        for (String name : names) {
-            if (name == null || name.isBlank()) {
-                namesCounter++;
-            }
-        }
-        return namesCounter;
-    }
-
-
-    // counts non uppercase names
-    private static int countNormalNames(String[] names) {
-        int namesCounter = 0;
-        for (String name : names) {
-            if (!isStringUpperCase(name) && !name.isBlank()) {
-                namesCounter++;
-            }
-        }
-        return namesCounter;
-    }
-
-
-    // count uppercase names
-    private static int countUppercaseNames(String[] names) {
-        int namesCounter = 0;
-        for (String name : names) {
-            if (isStringUpperCase(name)) {
-                namesCounter++;
-            }
-        }
-        return namesCounter;
-    }
-    */
-
-
     private static ArrayList<String> findShoutedNames(String[] names) {
         ArrayList<String> shoutedNames = new ArrayList<>();
         for (String name : names) {
