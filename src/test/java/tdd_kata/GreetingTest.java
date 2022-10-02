@@ -127,6 +127,17 @@ public class GreetingTest {
     }
 
     @Test
+    public void shouldReturnMultipleNamesInGreetingAndPluralStandIn() {
+        String[] names = {"Mario", "Luigi", "Wario", "Waluigi"};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(names);
+        String expectedResult = String.format("Hello, %s, %s, %s, %s, and my friends.", names[0], names[1], names[2], names[3]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+
+    @Test
     public void shouldReturnMultipleNamesInGreetingAndNotEmptyString() {
         String[] names = {"Mario", "Luigi", "Wario", "Waluigi"};
         Greeting greeting = new Greeting();
