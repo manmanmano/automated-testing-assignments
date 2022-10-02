@@ -144,8 +144,9 @@ public class Greeting {
                 multipleGreet.append(" AND HELLO, ").append(shoutedNames.get(0)).append(" AND ")
                         .append(shoutedNames.get(1)).append("!");
             } else {
+                multipleGreet.append(" AND HELLO, ");
                 for (int i = 0; i < shoutedNameCount; i++) {
-                    if (shoutedNameCount - 1 == i) {
+                    if (shoutedNameCount - 1 != i) {
                         multipleGreet.append(shoutedNames.get(i)).append(", ");
                     } else {
                         multipleGreet.append("AND ").append(shoutedNames.get(i)).append("!");
