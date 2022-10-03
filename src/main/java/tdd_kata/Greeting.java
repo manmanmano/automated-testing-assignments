@@ -110,6 +110,9 @@ public class Greeting {
         }
         char[] nameChrArr = name.toCharArray();
         for (char c : nameChrArr) {
+            if (name.contains(", ") && (c == ',' || c == ' ')) {
+                continue;
+            }
             if (!Character.isUpperCase(c)) {
                 return false;
             }
