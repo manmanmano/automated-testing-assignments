@@ -27,29 +27,20 @@ public class Greeting {
             names = deleteDoubleQuotes(names);
         }
 
-        // nameCount contains all the types of names, both shouted and unshouted, not blank, null, or "  "
-        int nameCount = findDefinedNames(names).size(), unshoutedNameCount = findUnshoutedNames(names).size(),
+        // definedNameCount = every name besides blanks and nulls, unshoutedNameCount = every unshouted name,
+        // shoutedNameCount = every shouted name, undefinedNameCount = every null and blank
+        int definedNameCount = findDefinedNames(names).size(), unshoutedNameCount = findUnshoutedNames(names).size(),
                 shoutedNameCount = findShoutedNames(names).size(), undefinedNameCount = findUndefinedNames(names).size();
 
-        if (nameCount == 0) {
+        if (definedNameCount == 0) {
             return "Hello, my friends.";
         }
 
-        // if there are no shouted names, then we can just deal with unshouted names
-        if (shoutedNameCount == 0) {
-            if (unshoutedNameCount == 2) {
-                return String.format("Hello, %s and %s.", names[0], names[1]);
-            }
-            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount, undefinedNameCount);
+        // only one shouted name and one unshouted name
+        if (shoutedNameCount == 1 && unshoutedNameCount == 1) {
+            return String.format("Hello, %s. AND HELLO, %s!", findUnshoutedNames(names).get(0), findShoutedNames(names).get(0));
         }
 
-        // if there is one shouted name, add the shouted name in the end
-        if (shoutedNameCount == 1) {
-            if (unshoutedNameCount == 1) {
-                return String.format("Hello, %s. AND HELLO, %s!", findUnshoutedNames(names).get(0), findShoutedNames(names).get(0));
-            }
-            return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount, undefinedNameCount);
-        }
         return buildMultipleGreet(names, shoutedNameCount, unshoutedNameCount, undefinedNameCount);
     }
 
