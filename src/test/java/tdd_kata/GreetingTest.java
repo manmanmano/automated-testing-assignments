@@ -278,5 +278,18 @@ public class GreetingTest {
 
         assertThat(actualResult).isEqualTo(expectedResult);
     }
-}
 
+
+    @Test
+    public void shouldReturnEscapedDoubleQuotedNamesInGreetingWithShoutedNames() {
+        String[] names = {"Yoshi", "Todd", "MARIO", "LUIGI"};
+        String[] escapedNames = {"Yoshi", "Todd", "\"MARIO, LUIGI\""};
+        Greeting greeting = new Greeting();
+
+        String actualResult = greeting.greet(escapedNames);
+
+        String expectedResult = String.format("Hello, %s and %s. AND HELLO, %s, %s!", names[0], names[1], names[2], names[3]);
+
+        assertThat(actualResult).isEqualTo(expectedResult);
+    }
+}
