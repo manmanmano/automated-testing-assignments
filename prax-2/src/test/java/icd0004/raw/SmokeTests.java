@@ -27,4 +27,27 @@ public class SmokeTests {
                 .then()
                 .statusCode(200);
     }
+
+    @Test
+    public void postBookingShouldReturn200() {
+        String payload = "{\n" +
+                "    \"firstname\": \"Al Faysal Bin\",\n" +
+                "    \"lastname\": \"Asad\",\n" +
+                "    \"totalprice\": 111,\n" +
+                "    \"depositpaid\": true,\n" +
+                "    \"bookingdates\": {\n" +
+                "    \"checkin\": \"2022-10-15\",\n" +
+                "    \"checkout\": \"2022-10-18\"\n" +
+                "    },\n" +
+                "    \"additionalneeds\": \"Breakfast\"\n" +
+                "}";
+
+        given()
+                .accept(JSON.toString())
+                .contentType(JSON.toString())
+                .body(payload)
+                .post(API_URL)
+                .then()
+                .statusCode(200);
+    }
 }
