@@ -5,13 +5,15 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
 import static io.restassured.http.ContentType.JSON;
+import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.notNullValue;
 
 public class SmokeTests {
 
     public static final String API_URL = "https://restful-booker.herokuapp.com/booking";
 
     @Test
-    public void getAllBookingsShouldReturn200() {
+    public void getAllBookingsShouldReturnHttp200() {
         when()
                 .get(API_URL)
                 .then()
@@ -19,7 +21,7 @@ public class SmokeTests {
     }
 
     @Test
-    public void getBookingIdShouldReturn200() {
+    public void getBookingIdShouldReturnHttp200() {
         given()
                 .contentType(JSON.toString())
                 .when()
@@ -29,7 +31,7 @@ public class SmokeTests {
     }
 
     @Test
-    public void postBookingShouldReturn200() {
+    public void postBookingShouldReturnHttp200() {
         String payload = "{\n" +
                 "    \"firstname\": \"Al Faysal Bin\",\n" +
                 "    \"lastname\": \"Asad\",\n" +
