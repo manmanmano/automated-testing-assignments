@@ -18,4 +18,24 @@ public class CreateBookingTests {
 
         assertThat(bookingResponse.getBookingid()).isNotNull();
     }
+
+    @Test
+    public void postBookingResponseShouldContainBooking() {
+        Booking bookingPayload = Booking.getFullPayload();
+        bookingPayload.setFirstname("Augustin");
+        bookingPayload.setLastname("Rincon");
+    }
+
+    @Test
+    public void createBookingFromFile() {
+        Booking bookingPayload = Booking.buildWithResource("test_data/jira_54.json");
+
+        BookingResponse bookingResponse = BookingApi
+                .postBooking(bookingPayload)
+                .as(BookingResponse.class);
+
+        assertThat(bookingResponse.getBooking())
+                .extracting("firstname", "lastname")
+                .contains("Donkey", "Kong")
+    }
 }
