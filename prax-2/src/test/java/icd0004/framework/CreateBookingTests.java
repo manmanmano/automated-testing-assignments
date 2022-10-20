@@ -36,6 +36,6 @@ public class CreateBookingTests {
 
         assertThat(bookingResponse.getBooking())
                 .extracting("firstname", "lastname")
-                .contains("Donkey", "Kong")
+                .contains("Donkey", "Kong");
     }
 }
