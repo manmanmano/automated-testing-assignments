@@ -26,8 +26,13 @@ public class SmokeTests {
     @Test
     public void postAuthenticationWithCorrectCredentialsReturnHttp200() {
         Authentication credentials = Authentication.getCredentials();
+        credentials.setUsername("admin");
+        credentials.setUsername("password");
 
-        AuthenticationApi.postCredentials(credentials).then().statusCode(200);
+        AuthenticationApi
+                .postCredentials(credentials, "admin", "password123")
+                .then()
+                .statusCode(200);
     }
 
 }
