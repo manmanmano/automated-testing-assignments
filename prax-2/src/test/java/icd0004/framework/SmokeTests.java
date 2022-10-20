@@ -14,9 +14,9 @@ public class SmokeTests {
         BookingApi.getBookingById(121).then().statusCode(200);
     }
 
-//    @Test
-//    public void postBookingShouldReturnHttp200() {
-//        Booking bookingPayload = Booking.getFullPayload();
-//        BookingResponse bookingResponse = BookingApi.postBooking(bookingPayload).then().statusCode(200);
-//    }
+    @Test
+    public void postBookingShouldReturnHttp200() {
+        Booking bookingPayload = Booking.getFullPayload();
+        BookingResponse bookingResponse = BookingApi.postBooking(bookingPayload).then().statusCode(200);
+    }
 }
