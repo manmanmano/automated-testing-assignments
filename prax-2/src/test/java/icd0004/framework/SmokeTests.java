@@ -22,4 +22,9 @@ public class SmokeTests {
         BookingApi.postBooking(bookingPayload).then().statusCode(200);
     }
 
+    @Test
+    public void postAuthenticationWithCorrectCredentialsReturnHttp200() {
+        AuthenticationApi.postAuthenticationCredentials("admin", "password123").then().statusCode(200);
+    }
+
 }
