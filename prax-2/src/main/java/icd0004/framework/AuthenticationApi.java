@@ -20,4 +20,15 @@ public class AuthenticationApi {
                 .when()
                 .post(AUTH_API);
     }
+
+    public static Response postCredentials(Authentication payload) {
+        return given()
+                .auth()
+                .preemptive()
+                .basic(payload.getUsername(), payload.getPassword())
+                .body(payload)
+                .contentType(ContentType.JSON)
+                .when()
+                .post(AUTH_API);
+    }
 }
