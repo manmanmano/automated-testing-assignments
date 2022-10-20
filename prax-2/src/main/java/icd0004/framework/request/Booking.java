@@ -1,5 +1,14 @@
 package icd0004.framework.request;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@JsonAutoDetect
 public class Booking {
     private String firstname;
     private String lastname;
