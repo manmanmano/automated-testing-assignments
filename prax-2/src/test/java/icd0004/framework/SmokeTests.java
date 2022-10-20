@@ -1,5 +1,6 @@
 package icd0004.framework;
 
+import icd0004.framework.request.Booking;
 import org.junit.jupiter.api.Test;
 
 public class SmokeTests {
@@ -17,6 +18,7 @@ public class SmokeTests {
     @Test
     public void postBookingShouldReturnHttp200() {
         Booking bookingPayload = Booking.getFullPayload();
-        BookingResponse bookingResponse = BookingApi.postBooking(bookingPayload).then().statusCode(200);
+
+        BookingApi.postBooking(bookingPayload).then().statusCode(200);
     }
 }
