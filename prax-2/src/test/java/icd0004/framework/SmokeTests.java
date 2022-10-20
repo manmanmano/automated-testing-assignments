@@ -1,5 +1,6 @@
 package icd0004.framework;
 
+import icd0004.framework.request.Authentication;
 import icd0004.framework.request.Booking;
 import org.junit.jupiter.api.Test;
 
@@ -24,7 +25,9 @@ public class SmokeTests {
 
     @Test
     public void postAuthenticationWithCorrectCredentialsReturnHttp200() {
-        AuthenticationApi.postAuthenticationCredentials("admin", "password123").then().statusCode(200);
+        Authentication credentials = Authentication.getCredentials();
+
+        AuthenticationApi.postCredentials(credentials).then().statusCode(200);
     }
 
 }
