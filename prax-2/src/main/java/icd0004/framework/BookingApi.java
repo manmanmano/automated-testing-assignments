@@ -1,5 +1,6 @@
 package icd0004.framework;
 
+import icd0004.framework.request.Booking;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -23,5 +24,14 @@ public class BookingApi {
                 .accept(contentType.toString())
                 .when()
                 .get(BOOKING_API + bookingId);
+    }
+
+    public static Response postBooking(Booking bookingPayload) {
+        return given()
+                .contentType(JSON.toString())
+                .accept(JSON.toString())
+                .body(bookingPayload)
+                .when()
+                .post(BOOKING_API);
     }
 }
