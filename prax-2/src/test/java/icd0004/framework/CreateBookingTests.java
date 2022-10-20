@@ -24,8 +24,15 @@ public class CreateBookingTests {
     @Test
     public void postBookingResponseShouldContainBooking() {
         Booking bookingPayload = Booking.getFullPayload();
-        bookingPayload.setFirstname("Augustin");
-        bookingPayload.setLastname("Rincon");
+        bookingPayload.setFirstname("Bill");
+        bookingPayload.setLastname("Gates");
+
+        BookingResponse bookingResponse = BookingApi
+                .postBooking(bookingPayload)
+                .as(BookingResponse.class);
+
+        assertThat(bookingResponse.getBooking().getFirstname()).isEqualTo("Bill");
+        assertThat(bookingResponse.getBooking().getLastname()).isEqualTo("Gates");
     }
 
     @Test
