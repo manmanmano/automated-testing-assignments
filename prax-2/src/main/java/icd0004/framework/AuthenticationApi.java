@@ -5,7 +5,6 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.http.ContentType.JSON;
 
 public class AuthenticationApi {
     private static final String BASE_URL = "https://restful-booker.herokuapp.com";
