@@ -4,6 +4,8 @@ import icd0004.framework.request.Booking;
 import icd0004.framework.response.BookingResponse;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class CreateBookingTests {
@@ -27,7 +29,7 @@ public class CreateBookingTests {
     }
 
     @Test
-    public void createBookingFromFile() {
+    public void createBookingFromFile() throws IOException {
         Booking bookingPayload = Booking.buildWithResource("test_data/jira_54.json");
 
         BookingResponse bookingResponse = BookingApi
