@@ -2,6 +2,7 @@ package icd0004.framework;
 
 import icd0004.framework.request.Authentication;
 import icd0004.framework.request.Booking;
+import icd0004.framework.response.BookingResponse;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.http.ContentType.TEXT;
@@ -52,19 +53,27 @@ public class SmokeTests {
         Booking bookingPayload = Booking.getFullPayload();
         String token = AuthenticationApi.retrieveToken();
 
+        BookingResponse bookingResponse = BookingApi
+                .postBooking(bookingPayload)
+                .as(BookingResponse.class);
+
         BookingApi
-                .putBooking(bookingPayload, token, 121)
+                .putBooking(bookingPayload, token, bookingResponse.getBookingid())
                 .then()
                 .statusCode(200);
     }
 
     @Test
     public void deleteBookingShouldReturnHttp201() {
-
+        Booking bookingPayload = Booking.getFullPayload();
         String token = AuthenticationApi.retrieveToken();
 
+        BookingResponse bookingResponse = BookingApi
+                .postBooking(bookingPayload)
+                .as(BookingResponse.class);
+
         BookingApi
-                .deleteBooking(token, 121)
+                .deleteBooking(token, bookingResponse.getBookingid())
                 .then()
                 .statusCode(201);
     }
