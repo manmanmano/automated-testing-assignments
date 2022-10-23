@@ -57,4 +57,15 @@ public class SmokeTests {
                 .then()
                 .statusCode(200);
     }
+
+    @Test
+    public void deleteBookingShouldReturnHttp201() {
+
+        String token = AuthenticationApi.retrieveToken();
+
+        BookingApi
+                .deleteBooking(token, 121)
+                .then()
+                .statusCode(201);
+    }
 }
