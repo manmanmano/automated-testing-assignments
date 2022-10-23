@@ -54,4 +54,12 @@ public class BookingApi {
                 .when()
                 .put(BOOKING_API + bookingId);
     }
+
+    public static Response deleteBooking(String token, int bookingId) {
+        return given()
+                .contentType(JSON.toString())
+                .cookie("token=" + token)
+                .when()
+                .delete(BOOKING_API + bookingId);
+    }
 }
