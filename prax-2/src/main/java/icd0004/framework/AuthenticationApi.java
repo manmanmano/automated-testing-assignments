@@ -1,6 +1,7 @@
 package icd0004.framework;
 
 import icd0004.framework.request.Authentication;
+import icd0004.framework.response.AuthenticationResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
@@ -30,5 +31,18 @@ public class AuthenticationApi {
                 .contentType(ContentType.JSON)
                 .when()
                 .post(AUTH_API);
+    }
+
+    public static String retrieveToken() {
+        Authentication credentials = Authentication.getCredentials();
+        credentials.setUsername("admin");
+        credentials.setPassword("password123");
+
+        AuthenticationResponse authenticationResponse = AuthenticationApi
+                .postCredentials(credentials)
+                .as(AuthenticationResponse.class);
+
+        System.out.println(authenticationResponse.getToken());
+        return authenticationResponse.getToken();
     }
 }
