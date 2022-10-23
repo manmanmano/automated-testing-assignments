@@ -16,7 +16,7 @@ public class CreateAuthenticationTests {
                 .postCredentials(credentials)
                 .as(AuthenticationResponse.class);
 
-        assertThat(authenticationResponse.getToken()).isNotNull();
-        assertThat(authenticationResponse.getToken()).isEqualTo("Bad credentials");
+        assertThat(authenticationResponse.getReason()).isNotNull();
+        assertThat(authenticationResponse.getReason()).isEqualTo("Bad credentials");
     }
 }
