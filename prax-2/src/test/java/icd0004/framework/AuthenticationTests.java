@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
-public class CreateAuthenticationTests {
+public class AuthenticationTests {
 
     @Test
     public void postAuthenticationWithIncorrectCredentialsShouldReturnBadCredentials() {
