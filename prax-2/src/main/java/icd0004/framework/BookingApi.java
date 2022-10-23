@@ -1,7 +1,6 @@
 package icd0004.framework;
 
 import icd0004.framework.request.Booking;
-import icd0004.framework.response.AuthenticationResponse;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
