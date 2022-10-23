@@ -9,14 +9,14 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CreateAuthenticationTests {
 
     @Test
-    public void postAuthenticationWithIncorrectCredentialsReturnBadCredentials() {
+    public void postAuthenticationWithCorrectCredentialsShouldReturnToken() {
         Authentication credentials = Authentication.getCredentials();
 
         AuthenticationResponse authenticationResponse = AuthenticationApi
                 .postCredentials(credentials)
                 .as(AuthenticationResponse.class);
 
-        assertThat(authenticationResponse.getAuth())
-                .as("Bad credentials");
+        assertThat(authenticationResponse.getToken()).isNotNull();
+        assertThat(authenticationResponse.getToken()).isEqualTo("Bad credentials");
     }
 }
