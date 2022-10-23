@@ -34,7 +34,7 @@ public class SmokeTests {
         credentials.setUsername("password");
 
         AuthenticationApi
-                .postCredentials(credentials, "admin", "password123")
+                .postCredentials(credentials)
                 .then()
                 .statusCode(200);
     }
