@@ -34,4 +34,13 @@ public class BookingApi {
                 .when()
                 .post(BOOKING_API);
     }
+
+    public static Response postBooking(Booking bookingPayload, ContentType contentType) {
+        return given()
+                .contentType(JSON.toString())
+                .accept(contentType.toString())
+                .body(bookingPayload)
+                .when()
+                .post(BOOKING_API);
+    }
 }
