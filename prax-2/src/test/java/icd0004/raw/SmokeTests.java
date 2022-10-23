@@ -25,7 +25,7 @@ public class SmokeTests {
         given()
                 .contentType(JSON.toString())
                 .when()
-                .get(API_URL + "/121")
+                .get(API_URL + "/1221")
                 .then()
                 .statusCode(200);
     }
