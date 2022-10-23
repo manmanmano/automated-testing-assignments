@@ -19,4 +19,18 @@ public class CreateAuthenticationTests {
         assertThat(authenticationResponse.getReason()).isNotNull();
         assertThat(authenticationResponse.getReason()).isEqualTo("Bad credentials");
     }
+
+    @Test
+    public void postAuthenticationWithCorrectCredentialsShouldReturnToken() {
+        Authentication credentials = Authentication.getCredentials();
+        credentials.setUsername("admin");
+        credentials.setPassword("password123");
+
+        AuthenticationResponse authenticationResponse = AuthenticationApi
+                .postCredentials(credentials)
+                .as(AuthenticationResponse.class);
+
+        assertThat(authenticationResponse.getToken()).isNotNull();
+        assertThat(authenticationResponse.getToken()).isNotEqualTo("Bad credentials");
+    }
 }
