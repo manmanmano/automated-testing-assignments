@@ -16,7 +16,7 @@ public class SmokeTests {
 
     @Test
     public void getBookingIdShouldReturnHttp200() {
-        BookingApi.getBookingById(121).then().statusCode(200);
+        BookingApi.getBookingById(1211).then().statusCode(200);
     }
 
     @Test
@@ -46,35 +46,5 @@ public class SmokeTests {
                 .postBooking(bookingPayload, TEXT)
                 .then()
                 .statusCode(418);
-    }
-
-    @Test
-    public void putBookingShouldReturnHttp200() {
-        Booking bookingPayload = Booking.getFullPayload();
-        String token = AuthenticationApi.retrieveToken();
-
-        BookingResponse bookingResponse = BookingApi
-                .postBooking(bookingPayload)
-                .as(BookingResponse.class);
-
-        BookingApi
-                .putBooking(bookingPayload, token, bookingResponse.getBookingid())
-                .then()
-                .statusCode(200);
-    }
-
-    @Test
-    public void deleteBookingShouldReturnHttp201() {
-        Booking bookingPayload = Booking.getFullPayload();
-        String token = AuthenticationApi.retrieveToken();
-
-        BookingResponse bookingResponse = BookingApi
-                .postBooking(bookingPayload)
-                .as(BookingResponse.class);
-
-        BookingApi
-                .deleteBooking(token, bookingResponse.getBookingid())
-                .then()
-                .statusCode(201);
     }
 }
