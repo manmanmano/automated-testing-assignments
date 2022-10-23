@@ -4,6 +4,8 @@ import icd0004.framework.request.Authentication;
 import icd0004.framework.request.Booking;
 import org.junit.jupiter.api.Test;
 
+import static io.restassured.http.ContentType.TEXT;
+
 public class SmokeTests {
 
     @Test
@@ -33,6 +35,16 @@ public class SmokeTests {
                 .postCredentials(credentials, "admin", "password123")
                 .then()
                 .statusCode(200);
+    }
+
+    @Test
+    public void postBookingWithWrongAcceptHeaderReturnHttp418() {
+        Booking bookingPayload = Booking.getFullPayload();
+
+        BookingApi
+                .postBooking(bookingPayload, TEXT)
+                .then()
+                .statusCode(418);
     }
 
 }
