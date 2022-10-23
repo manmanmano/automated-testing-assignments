@@ -31,7 +31,6 @@ public class AuthenticationApi {
                 .postCredentials(credentials)
                 .as(AuthenticationResponse.class);
 
-        System.out.println(authenticationResponse.getToken());
         return authenticationResponse.getToken();
     }
 }
