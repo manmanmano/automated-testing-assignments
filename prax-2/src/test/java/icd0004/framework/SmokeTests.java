@@ -2,8 +2,6 @@ package icd0004.framework;
 
 import icd0004.framework.request.Authentication;
 import icd0004.framework.request.Booking;
-import icd0004.framework.response.AuthenticationResponse;
-import io.restassured.internal.AuthenticationSpecificationImpl;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.http.ContentType.TEXT;
@@ -59,5 +57,4 @@ public class SmokeTests {
                 .then()
                 .statusCode(200);
     }
-
 }
