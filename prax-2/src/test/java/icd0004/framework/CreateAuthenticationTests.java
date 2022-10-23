@@ -9,7 +9,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 public class CreateAuthenticationTests {
 
     @Test
-    public void postAuthenticationWithCorrectCredentialsShouldReturnToken() {
+    public void postAuthenticationWithIncorrectCredentialsShouldReturnBadCredentials() {
         Authentication credentials = Authentication.getCredentials();
 
         AuthenticationResponse authenticationResponse = AuthenticationApi
