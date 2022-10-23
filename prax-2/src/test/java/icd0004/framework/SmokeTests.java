@@ -47,4 +47,14 @@ public class SmokeTests {
                 .statusCode(418);
     }
 
+    @Test
+    public void putBookingShouldReturnHttp200() {
+        Booking bookingPayload = Booking.getFullPayload();
+
+        BookingApi
+                .putBooking(bookingPayload)
+                .then()
+                .statusCode(200);
+    }
+
 }
