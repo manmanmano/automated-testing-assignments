@@ -50,7 +50,7 @@ public class BookingApi {
                 .contentType(JSON.toString())
                 .accept(JSON.toString())
                 .body(bookingPayload)
-                .cookie("token=" + token)
+                .cookie("token", token)
                 .when()
                 .put(BOOKING_API + bookingId);
     }
@@ -58,7 +58,7 @@ public class BookingApi {
     public static Response deleteBooking(String token, int bookingId) {
         return given()
                 .contentType(JSON.toString())
-                .cookie("token=" + token)
+                .cookie("token", token)
                 .when()
                 .delete(BOOKING_API + bookingId);
     }
