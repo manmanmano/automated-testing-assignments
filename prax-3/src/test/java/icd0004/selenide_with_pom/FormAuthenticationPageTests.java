@@ -20,4 +20,14 @@ public class FormAuthenticationPageTests extends BaseTest {
     public void canOpenFormAuthenticationPage() {
         assertThat(formAuthenticationPage.getPageTitleText()).isEqualTo("Login Page");
     }
+
+    @Test
+    public void shouldLoginToSecureAreaWithValidCredentials() {
+        String validUsername = "tomsmith";
+        String validPassword = "SuperSecretPassword!";
+
+        formAuthenticationPage.loginWithCredentials(validUsername, validPassword);
+
+        assertThat(formAuthenticationPage.getNotification().getText()).contains("You logged into a secure area!");
+    }
 }
