@@ -22,7 +22,7 @@ public class DynamicLoadingPage {
         return $("h3").getText();
     }
 
-    public void openExampleOneLInk() {
+    public void openExampleOneLink() {
         $(exampleOneLink).click();
     }
 
