@@ -25,6 +25,6 @@ public class CheckboxesPageTests extends BaseTest {
     public void shouldSelectAllCheckboxes() {
 //        checkboxesPage.selectAllCheckboxes();
 
-        assertThat(checkboxesPage.countCheckboxes()).isEqualTo(2);
+        assertThat(checkboxesPage.countCheckedCheckboxes()).isEqualTo(2);
     }
 }
