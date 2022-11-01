@@ -19,4 +19,15 @@ public class FormAuthenticationPageTests extends BaseTest {
     public void canOpenFormAuthenticationPage() {
         $("h2").shouldHave(text("Login Page"));
     }
+
+    @Test
+    public void shouldLoginToSecureAreaWithValidCredentials() {
+        String validUsername = "tomsmith";
+        String validPassword = "SuperSecretPassword!";
+
+        $("#username").setValue(validUsername);
+        $("#password").setValue(validPassword);
+        $("button").click();
+        $("h2").shouldHave(text("Secure Area"));
+    }
 }
