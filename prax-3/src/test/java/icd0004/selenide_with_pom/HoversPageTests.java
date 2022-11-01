@@ -9,6 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class HoversPageTests extends BaseTest {
 
     private static HoversPage hoversPage;
+    private static final String VIEW_PROFILE_URL = "https://the-internet.herokuapp.com/users/";
 
     @BeforeEach
     public void goToHoversPage() {
@@ -42,18 +43,18 @@ public class HoversPageTests extends BaseTest {
     @Test
     public void shouldDisplayUserOneLinkWhenHoveringOverProfilePicture() {
 
-        assertThat(hoversPage.getUserLinkOnHover(0)).isEqualTo("/users/1");
+        assertThat(hoversPage.getUserLinkOnHover(0)).isEqualTo(VIEW_PROFILE_URL + "1");
     }
 
     @Test
     public void shouldDisplayUserTwoLinkWhenHoveringOverProfilePicture() {
 
-        assertThat(hoversPage.getUserLinkOnHover(1)).isEqualTo("/users/2");
+        assertThat(hoversPage.getUserLinkOnHover(1)).isEqualTo(VIEW_PROFILE_URL + "2");
     }
 
     @Test
     public void shouldDisplayUserThreeLinkWhenHoveringOverProfilePicture() {
 
-        assertThat(hoversPage.getUserLinkOnHover(2)).isEqualTo("/users/3");
+        assertThat(hoversPage.getUserLinkOnHover(2)).isEqualTo(VIEW_PROFILE_URL + "3");
     }
 }
