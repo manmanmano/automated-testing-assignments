@@ -11,7 +11,7 @@ public class CheckboxesPageTests extends BaseTest {
     private static CheckboxesPage checkboxesPage;
 
     @BeforeEach
-    public void goToCheckoxesPage() {
+    public void goToCheckboxesPage() {
         checkboxesPage = new CheckboxesPage();
         checkboxesPage.goTo();
     }
