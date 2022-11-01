@@ -21,4 +21,12 @@ public class DynamicLoadingPage {
     public String getPageTitleText() {
         return $("h3").getText();
     }
+
+    public void openExampleOneLInk() {
+        $(exampleOneLink).click();
+    }
+
+    public void pressStart() {
+        $(startButton).click();
+    }
 }
