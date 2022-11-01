@@ -27,4 +27,11 @@ public class DropdownPageTests extends BaseTest {
 
         assertThat(dropdownPage.getSelectedDropdownItem()).isEqualTo("Option 1");
     }
+
+    @Test
+    public void canSelectOptionTwo() {
+        dropdownPage.selectOptionWithValue(2);
+
+        assertThat(dropdownPage.getSelectedDropdownItem()).isEqualTo("Option 2");
+    }
 }
