@@ -21,4 +21,10 @@ public class DynamicLoadingPageTests extends BaseTest {
         $("h3").shouldHave(text("Dynamically Loaded Page Elements"));
     }
 
+    @Test
+    public void shouldSeeHelloWorldAfterLoadingExampleOne() {
+        $(By.linkText("Example 1: Element on page that is hidden")).click();
+        $("#start > button").click();
+        $("#finish > h4").shouldHave(text("Hello World!"));
+    }
 }
