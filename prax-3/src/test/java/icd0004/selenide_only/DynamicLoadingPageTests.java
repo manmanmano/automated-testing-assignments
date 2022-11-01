@@ -27,4 +27,11 @@ public class DynamicLoadingPageTests extends BaseTest {
         $("#start > button").click();
         $("#finish > h4").shouldHave(text("Hello World!"));
     }
+
+    @Test
+    public void shouldSeeHelloWorldAfterLoadingExampleTwo() {
+        $(By.linkText("Example 2: Element rendered after the fact")).click();
+        $("#start > button").click();
+        $("#finish > h4").shouldHave(text("Hello World!"));
+    }
 }
