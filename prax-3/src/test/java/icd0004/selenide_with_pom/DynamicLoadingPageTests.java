@@ -20,4 +20,11 @@ public class DynamicLoadingPageTests extends BaseTest {
     public void canOpenDynamicLoadingPage() {
         assertThat(dynamicLoadingPage.getPageTitleText()).isEqualTo("Dynamically Loaded Page Elements");
     }
+
+    @Test
+    public void shouldSeeHelloWorldAfterLoadingExampleOne() {
+        dynamicLoadingPage.openExampleOneLink();
+        dynamicLoadingPage.pressStart();
+
+    }
 }
