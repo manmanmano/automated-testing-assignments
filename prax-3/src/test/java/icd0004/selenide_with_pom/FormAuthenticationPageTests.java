@@ -28,6 +28,6 @@ public class FormAuthenticationPageTests extends BaseTest {
 
         formAuthenticationPage.loginWithCredentials(validUsername, validPassword);
 
-        assertThat(formAuthenticationPage.getNotification().getText()).contains("You logged into a secure area!");
+        assertThat(formAuthenticationPage.getNotification()).contains("You logged into a secure area!");
     }
 }
