@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class DynamicLoadingPageTests {
+public class DynamicLoadingPageTests extends BaseTest {
 
     private static DynamicLoadingPage dynamicLoadingPage;
 
