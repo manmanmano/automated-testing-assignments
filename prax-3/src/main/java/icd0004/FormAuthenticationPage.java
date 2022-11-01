@@ -13,4 +13,8 @@ public class FormAuthenticationPage {
         open("/");
         $(dropdownPageLink).click();
     }
+
+    public String getPageTitleText() {
+        return $("h2").getText();
+    }
 }
