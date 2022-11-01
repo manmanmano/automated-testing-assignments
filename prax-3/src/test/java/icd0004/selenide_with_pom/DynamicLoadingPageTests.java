@@ -28,4 +28,12 @@ public class DynamicLoadingPageTests extends BaseTest {
 
         assertThat(dynamicLoadingPage.getGreetingText()).isEqualTo("Hello World!");
     }
+
+    @Test
+    public void shouldSeeHelloWorldAfterLoadingExampleTwo() {
+        dynamicLoadingPage.openExampleTwoLink();
+        dynamicLoadingPage.pressStart();
+
+        assertThat(dynamicLoadingPage.getGreetingText()).isEqualTo("Hello World!");
+    }
 }
