@@ -30,4 +30,14 @@ public class FormAuthenticationPageTests extends BaseTest {
 
         assertThat(formAuthenticationPage.getNotification()).contains("You logged into a secure area!");
     }
+
+    @Test
+    public void shouldNotLoginToSecureAreaWithInvalidCredentials() {
+        String invalidUsername = "tomsmit";
+        String invalidPassword = "NotSecretPassword!";
+
+        formAuthenticationPage.loginWithCredentials(invalidUsername, invalidPassword);
+
+        assertThat(formAuthenticationPage.getNotification()).contains("Your username is invalid!");
+    }
 }
