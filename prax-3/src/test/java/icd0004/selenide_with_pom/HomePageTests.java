@@ -4,6 +4,8 @@ import icd0004.HomePage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class HomePageTests extends BaseTest{
 
     private static HomePage homePage;
@@ -16,6 +18,6 @@ public class HomePageTests extends BaseTest{
 
     @Test
     public void canOpenHomePage() {
-        assertThat(homePage.getPageTitleText()).isEqualTo.("Welcome to the-internet");
+        assertThat(homePage.getPageTitleText()).isEqualTo("Welcome to the-internet");
     }
 }
