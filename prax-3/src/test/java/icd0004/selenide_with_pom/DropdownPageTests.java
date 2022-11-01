@@ -20,4 +20,11 @@ public class DropdownPageTests extends BaseTest {
     public void canOpenDropdownPage() {
         assertThat(dropdownPage.getPageTitleText()).isEqualTo("Dropdown List");
     }
+
+    @Test
+    public void canSelectOptionOne() {
+        dropdownPage.selectOptionWithValue(1);
+
+        assertThat(dropdownPage.getSelectedDropdownItem()).isEqualTo("Option 1");
+    }
 }
