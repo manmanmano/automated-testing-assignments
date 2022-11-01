@@ -2,6 +2,9 @@ package icd0004;
 
 import org.openqa.selenium.By;
 
+import java.time.Duration;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
@@ -28,5 +31,9 @@ public class DynamicLoadingPage {
 
     public void pressStart() {
         $(startButton).click();
+    }
+
+    public String getGreetingText() {
+        return $(greetingField).shouldBe(visible, Duration.ofSeconds(7)).getText();
     }
 }
