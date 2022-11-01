@@ -1,5 +1,6 @@
 package icd0004.selenide_only;
 
+import com.codeborne.selenide.SelenideElement;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
@@ -19,5 +20,13 @@ public class DropdownPageTests extends BaseTest {
     @Test
     public void canOpenDropdownPage() {
         $("h3").shouldHave(text("Dropdown List"));
+    }
+
+    @Test
+    public void canSelectOptionOne() {
+        $("#dropdown").click();
+        $("#dropdown").selectOptionByValue("1");
+        SelenideElement selectedOption = $("#dropdown").getSelectedOption();
+        selectedOption.shouldHave(text("Option 1"));
     }
 }
