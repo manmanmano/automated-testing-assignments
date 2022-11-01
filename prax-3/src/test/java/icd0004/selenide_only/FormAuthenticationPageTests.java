@@ -30,4 +30,15 @@ public class FormAuthenticationPageTests extends BaseTest {
         $("button").click();
         $("h2").shouldHave(text("Secure Area"));
     }
+
+    @Test
+    public void shouldLoginToSecureAreaWithInvalidCredentials() {
+        String invalidUsername = "johnsmith";
+        String invalidPassword = "NotSecretPassword!";
+
+        $("#username").setValue(invalidUsername);
+        $("#password").setValue(invalidPassword);
+        $("button").click();
+        $("#flash").shouldHave(text("Your username is invalid!"));
+    }
 }
