@@ -20,4 +20,11 @@ public class CheckboxesPageTests extends BaseTest {
     public void canOpenCheckboxesPage() {
         assertThat(checkboxesPage.getPageTitleText()).isEqualTo("Checkboxes");
     }
+
+    @Test
+    public void shouldSelectAllCheckboxes() {
+        checkboxesPage.selectAllCheckboxes();
+
+        assertThat(checkboxesPage.countCheckedCheckboxes()).isEqualTo(2);
+    }
 }
