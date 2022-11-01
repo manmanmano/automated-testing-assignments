@@ -29,4 +29,12 @@ public class DropdownPageTests extends BaseTest {
         SelenideElement selectedOption = $("#dropdown").getSelectedOption();
         selectedOption.shouldHave(text("Option 1"));
     }
+
+    @Test
+    public void canSelectionOptionTwo() {
+        $("#dropdown").click();
+        $("#dropdown").selectOptionByValue("2");
+        SelenideElement selectedOption = $("#dropdown").getSelectedOption();
+        selectedOption.shouldHave(text("Option 2"));
+    }
 }
