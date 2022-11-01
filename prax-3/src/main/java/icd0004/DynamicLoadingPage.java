@@ -28,6 +28,7 @@ public class DynamicLoadingPage {
     public void openExampleOneLink() {
         $(exampleOneLink).click();
     }
+
     public void openExampleTwoLink() {
         $(exampleTwoLink).click();
     }
