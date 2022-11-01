@@ -1,5 +1,6 @@
 package icd0004;
 
+import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -11,6 +12,7 @@ public class FormAuthenticationPage {
     private final By usernameField = By.id("username");
     private final By passwordField = By.id("password");
     private final By submitButton = By.xpath("//button");
+    private final By notification = By.id("flash");
 
     public void goTo() {
         open("/");
@@ -25,5 +27,9 @@ public class FormAuthenticationPage {
         $(usernameField).setValue(username);
         $(passwordField).setValue(password);
         $(submitButton).click();
+    }
+
+    public String getNotification() {
+        return $(notification).getText();
     }
 }
