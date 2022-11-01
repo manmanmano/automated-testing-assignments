@@ -1,4 +1,21 @@
 package icd0004.selenide_with_pom;
 
-public class HomePageTests {
+import icd0004.HomePage;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class HomePageTests extends BaseTest{
+
+    private static HomePage homePage;
+
+    @BeforeEach
+    public void goToHomePage() {
+        homePage = new HomePage();
+        homePage.goTo();
+    }
+
+    @Test
+    public void canOpenHomePage() {
+        assertThat(homePage.getPageTitleText()).isEqualTo.("Welcome to the-internet");
+    }
 }
