@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selenide.open;
 public class DropdownPage {
 
     private final By dropdownPageLink = By.linkText("Dropdown");
-    private final By dropdownField = By.id("dropdown");
 
     public void goTo() {
         open("/");
