@@ -1,4 +1,4 @@
-package icd0004;
+package icd0004.selenide_only;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;

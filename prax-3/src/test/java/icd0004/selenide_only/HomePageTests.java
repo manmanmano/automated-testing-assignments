@@ -1,4 +1,4 @@
-package icd0004;
+package icd0004.selenide_only;
 
 import org.junit.jupiter.api.Test;
 
