@@ -26,5 +26,6 @@ public class DynamicLoadingPageTests extends BaseTest {
         dynamicLoadingPage.openExampleOneLink();
         dynamicLoadingPage.pressStart();
 
+        assertThat(dynamicLoadingPage.getGreetingText()).isEqualTo("Hello World!");
     }
 }
