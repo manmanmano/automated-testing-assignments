@@ -38,4 +38,22 @@ public class HoversPageTests extends BaseTest {
 
         assertThat(hoversPage.getUserNameOnHover(2)).contains("user3");
     }
+
+    @Test
+    public void shouldDisplayUserOneLinkWhenHoveringOverProfilePicture() {
+
+        assertThat(hoversPage.getUserLinkOnHover(0)).isEqualTo("/users/1");
+    }
+
+    @Test
+    public void shouldDisplayUserTwoLinkWhenHoveringOverProfilePicture() {
+
+        assertThat(hoversPage.getUserLinkOnHover(1)).isEqualTo("/users/2");
+    }
+
+    @Test
+    public void shouldDisplayUserThreeLinkWhenHoveringOverProfilePicture() {
+
+        assertThat(hoversPage.getUserLinkOnHover(2)).isEqualTo("/users/3");
+    }
 }
