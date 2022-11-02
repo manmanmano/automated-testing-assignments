@@ -21,6 +21,14 @@ public class CheckboxesPage {
         return $("h3").getText();
     }
 
+    public void checkAllCheckboxes() {
+        for (SelenideElement checkbox : $$(checkboxesCollection)) {
+            if (!checkbox.isSelected()) {
+                checkbox.click();
+            }
+        }
+    }
+
     public Integer countCheckedCheckboxes() {
         int checkedCheckboxesCounter = 0;
         for (SelenideElement checkbox : $$(checkboxesCollection)) {
