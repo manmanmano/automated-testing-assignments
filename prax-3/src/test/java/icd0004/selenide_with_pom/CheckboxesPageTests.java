@@ -27,4 +27,11 @@ public class CheckboxesPageTests extends BaseTest {
 
         assertThat(checkboxesPage.countCheckedCheckboxes()).isEqualTo(2);
     }
+
+    @Test
+    public void shouldUnheckAllCheckboxes() {
+        checkboxesPage.uncheckAllCheckboxes();
+
+        assertThat(checkboxesPage.countCheckedCheckboxes()).isEqualTo(0);
+    }
 }
