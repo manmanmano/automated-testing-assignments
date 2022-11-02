@@ -29,6 +29,14 @@ public class CheckboxesPage {
         }
     }
 
+    public void uncheckAllCheckboxes() {
+        for (SelenideElement checkbox : $$(checkboxesCollection)) {
+            if (checkbox.isSelected()) {
+                checkbox.click();
+            }
+        }
+    }
+
     public Integer countCheckedCheckboxes() {
         int checkedCheckboxesCounter = 0;
         for (SelenideElement checkbox : $$(checkboxesCollection)) {
