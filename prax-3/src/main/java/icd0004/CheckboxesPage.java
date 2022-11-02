@@ -36,7 +36,6 @@ public class CheckboxesPage {
                 checkedCheckboxesCounter++;
             }
         }
-        System.out.println($$(checkboxesCollection).size());
         return checkedCheckboxesCounter;
     }
 }
