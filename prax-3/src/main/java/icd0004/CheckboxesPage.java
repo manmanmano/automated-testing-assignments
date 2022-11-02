@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class CheckboxesPage {
 
    private final By checkboxesPageLink = By.linkText("Checkboxes");
-   private final By checkboxesCollection = By.xpath("//checkbox");
+   private final By checkboxesCollection = By.xpath("//input");
 
     public void goTo() {
         open("/");
@@ -36,7 +36,7 @@ public class CheckboxesPage {
                 checkedCheckboxesCounter++;
             }
         }
-        System.out.println(checkedCheckboxesCounter);
+        System.out.println($$(checkboxesCollection).size());
         return checkedCheckboxesCounter;
     }
 }
