@@ -1,6 +1,6 @@
 # automated-testing-assignments
 
-This repository contains all of my solutions to the exercies of automated testing course at TalTech.
+This repository contains all of my solutions to the exercices of automated testing course at TalTech.
 
 
 Topics:
